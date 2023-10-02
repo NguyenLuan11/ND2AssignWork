@@ -38,6 +38,7 @@ public class TaskEntity {
 	
 	@Column(name = "Task_DateSend", columnDefinition = "datetime")
 	@CreatedDate
+	@NotBlank
 	private Date Task_DateSend;
 	
 	@Column(name = "Task_DateEnd", columnDefinition = "datetime")

@@ -87,7 +87,29 @@ public class UserAccountEntity {
 			inverseJoinColumns = @JoinColumn(name = "Permission_ID"))
 	private Set<PermissionEntity> Permission = new HashSet<>();
 	
+	// Foreign key Document_Incomming_UserSend
+	@OneToMany(mappedBy = "Document_Incomming_UserSend")
+	private List<DocumentIncommingEntity> DocumentIncommingUserSend = new ArrayList<>();
 	
+	// Foreign key Document_Incomming_UserReceive
+	@OneToMany(mappedBy = "Document_Incomming_UserReceive")
+	private List<DocumentIncommingEntity> DocumentIncommingUserReceive = new ArrayList<>();
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserSend() {
+		return DocumentIncommingUserSend;
+	}
+
+	public void setDocumentIncommingUserSend(List<DocumentIncommingEntity> documentIncommingUserSend) {
+		DocumentIncommingUserSend = documentIncommingUserSend;
+	}
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserReceive() {
+		return DocumentIncommingUserReceive;
+	}
+
+	public void setDocumentIncommingUserReceive(List<DocumentIncommingEntity> documentIncommingUserReceive) {
+		DocumentIncommingUserReceive = documentIncommingUserReceive;
+	}
 
 	public Set<PermissionEntity> getPermission() {
 		return Permission;

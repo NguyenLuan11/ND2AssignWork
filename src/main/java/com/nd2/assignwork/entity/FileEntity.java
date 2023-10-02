@@ -31,6 +31,8 @@ public class FileEntity {
 		joinColumns = @JoinColumn(name = "File_ID"),
 		inverseJoinColumns = @JoinColumn(name = "Task_ID"))
 	private Set<TaskEntity> Task = new HashSet<>();
+	
+	// Foreign key Document_Incomming_File
 
 	public Set<TaskEntity> getTask() {
 		return Task;
