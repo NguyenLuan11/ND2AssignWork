@@ -31,7 +31,37 @@ public class FileEntity {
 		joinColumns = @JoinColumn(name = "File_ID"),
 		inverseJoinColumns = @JoinColumn(name = "Task_ID"))
 	private Set<TaskEntity> Task = new HashSet<>();
+	
+	// Foreign key Document_Incomming_File
+	@ManyToMany
+	@JoinTable(name = "Document_Incomming_File",
+		joinColumns = @JoinColumn(name = "File_ID"),
+		inverseJoinColumns = @JoinColumn(name = "Document_Incomming_ID"))
+	private Set<DocumentIncommingEntity> DocumentIncomming = new HashSet<>();
+	
+	// Foreign key Document_Send_File
+	@ManyToMany
+	@JoinTable(name = "Document_Send_File",
+		joinColumns = @JoinColumn(name = "File_ID"),
+		inverseJoinColumns = @JoinColumn(name = "Document_Send_ID"))
+	private Set<DocumentSendEntity> DocumentSendFile = new HashSet<>();
 
+	public Set<DocumentSendEntity> getDocumentSendFile() {
+		return DocumentSendFile;
+	}
+
+	public void setDocumentSendFile(Set<DocumentSendEntity> documentSendFile) {
+		DocumentSendFile = documentSendFile;
+	}
+
+	public Set<DocumentIncommingEntity> getDocumentIncomming() {
+		return DocumentIncomming;
+	}
+
+	public void setDocumentIncomming(Set<DocumentIncommingEntity> documentIncomming) {
+		DocumentIncomming = documentIncomming;
+	}
+	
 	public Set<TaskEntity> getTask() {
 		return Task;
 	}

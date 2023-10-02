@@ -87,7 +87,56 @@ public class UserAccountEntity {
 			inverseJoinColumns = @JoinColumn(name = "Permission_ID"))
 	private Set<PermissionEntity> Permission = new HashSet<>();
 	
+	// Foreign key Document_Incomming_UserSend
+	@OneToMany(mappedBy = "Document_Incomming_UserSend")
+	private List<DocumentIncommingEntity> DocumentIncommingUserSend = new ArrayList<>();
 	
+	// Foreign key Document_Incomming_UserReceive
+	@OneToMany(mappedBy = "Document_Incomming_UserReceive")
+	private List<DocumentIncommingEntity> DocumentIncommingUserReceive = new ArrayList<>();
+	
+	// Foreign key Document_Send_UserSend
+	@OneToMany(mappedBy = "Document_Send_UserSend")
+	private List<DocumentSendEntity> DocumentSendUserSend = new ArrayList<>();
+	
+	// Foreign key User_Receive_Document
+	@ManyToMany
+	@JoinTable(name = "User_Receive_Document",
+			joinColumns = @JoinColumn(name = "User_ID"),
+			inverseJoinColumns = @JoinColumn(name = "Document_Send_ID"))
+	private Set<DocumentSendEntity> DocumentSend = new HashSet<>();
+	
+	public Set<DocumentSendEntity> getDocumentSend() {
+		return DocumentSend;
+	}
+
+	public void setDocumentSend(Set<DocumentSendEntity> documentSend) {
+		DocumentSend = documentSend;
+	}
+
+	public List<DocumentSendEntity> getDocumentSendUserSend() {
+		return DocumentSendUserSend;
+	}
+
+	public void setDocumentSendUserSend(List<DocumentSendEntity> documentSendUserSend) {
+		DocumentSendUserSend = documentSendUserSend;
+	}
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserSend() {
+		return DocumentIncommingUserSend;
+	}
+
+	public void setDocumentIncommingUserSend(List<DocumentIncommingEntity> documentIncommingUserSend) {
+		DocumentIncommingUserSend = documentIncommingUserSend;
+	}
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserReceive() {
+		return DocumentIncommingUserReceive;
+	}
+
+	public void setDocumentIncommingUserReceive(List<DocumentIncommingEntity> documentIncommingUserReceive) {
+		DocumentIncommingUserReceive = documentIncommingUserReceive;
+	}
 
 	public Set<PermissionEntity> getPermission() {
 		return Permission;

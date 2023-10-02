@@ -49,6 +49,10 @@ public class DiscussEntity implements Serializable {
 		Discuss_Task = discuss_Task;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public UserAccountEntity getDiscuss_User() {
 		return Discuss_User;
 	}
