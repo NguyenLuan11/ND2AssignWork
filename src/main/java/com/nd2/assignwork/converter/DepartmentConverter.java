@@ -12,7 +12,7 @@ public class DepartmentConverter {
 	public DepartmentEntity toEntity(DepartmentDTO dto) {
 		DepartmentEntity entity = new DepartmentEntity();
 		entity.setDepartment_ID(dto.getDepartment_ID());
-		entity.setDepartment_Name(dto.getDepartment_Name());
+		entity.setDepartmentName(dto.getDepartment_Name());
 		return entity;
 	}
 	
@@ -20,7 +20,7 @@ public class DepartmentConverter {
 	public DepartmentDTO toDTO(DepartmentEntity entity) {
 		DepartmentDTO dto = new DepartmentDTO();
 		dto.setDepartment_ID(entity.getDepartment_ID());
-		dto.setDepartment_Name(entity.getDepartment_Name());
+		dto.setDepartment_Name(entity.getDepartmentName());
 		if(entity.getDepartment_Head() != null) {
 			dto.setDepartment_Head(entity.getDepartment_Head().getUser_FullName());
 		}
@@ -30,7 +30,7 @@ public class DepartmentConverter {
 	// Save update Department by convert from DTO to Entity
 	public DepartmentEntity toEntity(DepartmentDTO dto, DepartmentEntity entity) {
 		entity.setDepartment_ID(dto.getDepartment_ID());
-		entity.setDepartment_Name(dto.getDepartment_Name());
+		entity.setDepartmentName(dto.getDepartment_Name());
 		return entity;
 	}
 }

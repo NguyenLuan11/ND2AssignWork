@@ -7,5 +7,5 @@ import com.nd2.assignwork.entity.UserAccountEntity;
 public interface UserAccountRepository extends JpaRepository<UserAccountEntity, String> {
 
 	// Find single UserAccount by User_UserName
-	UserAccountEntity findOneByUser_UserName(String User_UserName);
+	UserAccountEntity findOneByUserUserName(String userUserName);
 }

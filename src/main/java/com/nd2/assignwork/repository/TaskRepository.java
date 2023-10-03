@@ -7,5 +7,5 @@ import com.nd2.assignwork.entity.TaskEntity;
 public interface TaskRepository extends JpaRepository<TaskEntity, String> {
 
 	// Find single Task by title
-	TaskEntity findOneByTask_Tile(String Task_Title);
+	TaskEntity findOneByTaskTitle(String taskTitle);
 }

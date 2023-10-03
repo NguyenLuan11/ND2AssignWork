@@ -28,7 +28,7 @@ public class UserAccountEntity {
 	
 	@Column(name = "User_UserName", columnDefinition = "varchar(30)")
 	@NotBlank
-	private String User_UserName;
+	private String userUserName;
 	
 	@Column(name = "User_FullName", columnDefinition = "nvarchar(255)")
 	@NotBlank
@@ -77,7 +77,7 @@ public class UserAccountEntity {
 	private DepartmentEntity Department;
 	
 	// Foreign key Discuss_User
-	@OneToMany(mappedBy = "Discuss_User")
+	@OneToMany(mappedBy = "discussUser")
 	private List<DiscussEntity> Discuss = new ArrayList<>();
 	
 	// Foreign key User_Permission
@@ -162,12 +162,12 @@ public class UserAccountEntity {
 		User_ID = user_ID;
 	}
 
-	public String getUser_UserName() {
-		return User_UserName;
+	public String getUserUserName() {
+		return userUserName;
 	}
 
-	public void setUser_UserName(String user_UserName) {
-		User_UserName = user_UserName;
+	public void setUserUserName(String userUserName) {
+		this.userUserName = userUserName;
 	}
 
 	public String getUser_FullName() {

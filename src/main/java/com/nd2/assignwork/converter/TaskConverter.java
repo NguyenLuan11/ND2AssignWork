@@ -12,7 +12,7 @@ public class TaskConverter {
 	public TaskEntity toEntity(TaskDTO dto) {
 		TaskEntity entity = new TaskEntity();
 		entity.setTask_ID(dto.getTask_ID());
-		entity.setTask_Title(dto.getTask_Title());
+		entity.setTaskTitle(dto.getTask_Title());
 		entity.setTask_Content(dto.getTask_Content());
 		entity.setTask_DateSend(dto.getTask_DateEnd());
 		entity.setTask_DateEnd(dto.getTask_DateEnd());
@@ -24,13 +24,13 @@ public class TaskConverter {
 	public TaskDTO toDTO(TaskEntity entity) {
 		TaskDTO dto = new TaskDTO();
 		dto.setTask_ID(entity.getTask_ID());
-		dto.setTask_Title(entity.getTask_Title());
+		dto.setTask_Title(entity.getTaskTitle());
 		dto.setTask_Content(entity.getTask_Content());
 		dto.setTask_DateSend(entity.getTask_DateEnd());
 		dto.setTask_DateEnd(entity.getTask_DateEnd());
 		dto.setTask_State(entity.getTask_State());
 		if(entity.getTask_Category() != null) {
-			dto.setTask_Category(entity.getTask_Category().getCategory_Name());
+			dto.setTask_Category(entity.getTask_Category().getCategoryName());
 		}
 		if(entity.getTask_Personal_Send() != null) {
 			dto.setTask_Personal_Send(entity.getTask_Personal_Send().getUser_FullName());
@@ -44,7 +44,7 @@ public class TaskConverter {
 	// Save update Task by convert from DTO to Entity
 	public TaskEntity toEntity(TaskDTO dto, TaskEntity entity) {
 		entity.setTask_ID(dto.getTask_ID());
-		entity.setTask_Title(dto.getTask_Title());
+		entity.setTaskTitle(dto.getTask_Title());
 		entity.setTask_Content(dto.getTask_Content());
 		entity.setTask_DateSend(dto.getTask_DateEnd());
 		entity.setTask_DateEnd(dto.getTask_DateEnd());

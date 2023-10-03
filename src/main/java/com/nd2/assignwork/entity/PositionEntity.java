@@ -24,7 +24,7 @@ public class PositionEntity {
 	
 	@Column(name = "Position_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Position_Name;
+	private String positionName;
 	
 	// Foreign key User_Position
 	@OneToMany(mappedBy = "User_Position")
@@ -38,11 +38,19 @@ public class PositionEntity {
 		Position_ID = position_ID;
 	}
 
-	public String getPosition_Name() {
-		return Position_Name;
+	public String getPositionName() {
+		return positionName;
 	}
 
-	public void setPosition_Name(String position_Name) {
-		Position_Name = position_Name;
+	public void setPositionName(String positionName) {
+		this.positionName = positionName;
+	}
+
+	public List<UserAccountEntity> getUser() {
+		return User;
+	}
+
+	public void setUser(List<UserAccountEntity> user) {
+		User = user;
 	}
 }

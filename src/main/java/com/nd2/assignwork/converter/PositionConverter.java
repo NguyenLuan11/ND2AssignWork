@@ -11,7 +11,7 @@ public class PositionConverter {
 	// Convert from DTO to Entity
 	public PositionEntity toEntity(PositionDTO dto) {
 		PositionEntity entity = new PositionEntity();
-		entity.setPosition_Name(dto.getPosition_Name());
+		entity.setPositionName(dto.getPosition_Name());
 		return entity;
 	}
 	
@@ -21,13 +21,13 @@ public class PositionConverter {
 		if(entity.getPosition_ID() != null) {
 			dto.setPosition_ID(entity.getPosition_ID());
 		}
-		dto.setPosition_Name(entity.getPosition_Name());
+		dto.setPosition_Name(entity.getPositionName());
 		return dto;
 	}
 	
 	// Save update Position by convert from DTO to Entity
 	public PositionEntity toEntity(PositionDTO dto, PositionEntity entity) {
-		entity.setPosition_Name(dto.getPosition_Name());
+		entity.setPositionName(dto.getPosition_Name());
 		return entity;
 	}
 }

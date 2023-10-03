@@ -42,13 +42,13 @@ public class TaskService implements ITaskService {
 			taskEntity = taskConverter.toEntity(taskDTO);
 		}
 		
-		TaskCategoryEntity taskCategoryEntity = taskCategoryRepository.findOneByCategory_Name(taskDTO.getTask_Category());
+		TaskCategoryEntity taskCategoryEntity = taskCategoryRepository.findOneByCategoryName(taskDTO.getTask_Category());
 		taskEntity.setTask_Category(taskCategoryEntity);
 		
-		UserAccountEntity userAccountSend = userAccountRepository.findOneByUser_UserName(taskDTO.getTask_Personal_Send());
+		UserAccountEntity userAccountSend = userAccountRepository.findOneByUserUserName(taskDTO.getTask_Personal_Send());
 		taskEntity.setTask_Personal_Send(userAccountSend);
 		
-		UserAccountEntity userAccountReceive = userAccountRepository.findOneByUser_UserName(taskDTO.getTask_Personal_Receive());
+		UserAccountEntity userAccountReceive = userAccountRepository.findOneByUserUserName(taskDTO.getTask_Personal_Receive());
 		taskEntity.setTask_Personal_Receive(userAccountReceive);
 		
 		taskEntity = taskRepository.save(taskEntity);

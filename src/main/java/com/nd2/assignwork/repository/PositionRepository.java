@@ -7,5 +7,5 @@ import com.nd2.assignwork.entity.PositionEntity;
 public interface PositionRepository extends JpaRepository<PositionEntity, Integer> {
 
 	// Find single Position by Position_Name
-	PositionEntity findOneByPosition_Name(String Position_Name);
+	PositionEntity findOneByPositionName(String positionName);
 }

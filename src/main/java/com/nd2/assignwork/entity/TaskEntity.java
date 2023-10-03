@@ -31,7 +31,7 @@ public class TaskEntity {
 	
 	@Column(name = "Task_Title", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Task_Title;
+	private String taskTitle;
 	
 	@Column(name = "Task_Content", columnDefinition = "nvarchar(255)")
 	private String Task_Content;
@@ -66,7 +66,7 @@ public class TaskEntity {
 	private UserAccountEntity Task_Personal_Receive;
 	
 	// Foreign key Discuss_Task
-	@OneToMany(mappedBy = "Discuss_Task")
+	@OneToMany(mappedBy = "discussTask")
 	private List<DiscussEntity> Discuss = new ArrayList<>();
 	
 	// Foreign key Task_File
@@ -89,12 +89,12 @@ public class TaskEntity {
 		Task_ID = task_ID;
 	}
 
-	public String getTask_Title() {
-		return Task_Title;
+	public String getTaskTitle() {
+		return taskTitle;
 	}
 
-	public void setTask_Title(String task_Title) {
-		Task_Title = task_Title;
+	public void setTaskTitle(String taskTitle) {
+		this.taskTitle = taskTitle;
 	}
 
 	public String getTask_Content() {

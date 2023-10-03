@@ -37,7 +37,7 @@ public class DocumentSendService implements IDocumentSendService {
 			documentSendEntity = documentSendConverter.toEntity(documentSendDTO);
 		}
 		
-		UserAccountEntity userSend = userAccountRepository.findOneByUser_UserName(documentSendDTO.getDocument_Send_UserSend());
+		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentSendDTO.getDocument_Send_UserSend());
 		documentSendEntity.setDocument_Send_UserSend(userSend);
 		
 		documentSendEntity = documentSendRepository.save(documentSendEntity);

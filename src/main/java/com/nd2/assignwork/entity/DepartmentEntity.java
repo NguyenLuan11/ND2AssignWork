@@ -23,7 +23,7 @@ public class DepartmentEntity {
 	
 	@Column(name = "Department_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Department_Name;
+	private String departmentName;
 	
 	// Foreign key Department_Head
 	@OneToOne
@@ -43,12 +43,12 @@ public class DepartmentEntity {
 		Department_ID = department_ID;
 	}
 
-	public String getDepartment_Name() {
-		return Department_Name;
+	public String getDepartmentName() {
+		return departmentName;
 	}
 
-	public void setDepartment_Name(String department_Name) {
-		Department_Name = department_Name;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 
 	public UserAccountEntity getDepartment_Head() {

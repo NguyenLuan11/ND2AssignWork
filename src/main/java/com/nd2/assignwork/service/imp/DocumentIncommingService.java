@@ -37,10 +37,10 @@ public class DocumentIncommingService implements IDocumentIncommingService {
 			documentIncommingEntity = documentIncommingConverter.toEntity(documentIncommingDTO);
 		}
 		
-		UserAccountEntity userSend = userAccountRepository.findOneByUser_UserName(documentIncommingDTO.getDocument_Incomming_UserSend());
+		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocument_Incomming_UserSend());
 		documentIncommingEntity.setDocument_Incomming_UserSend(userSend);
 		
-		UserAccountEntity userReceive = userAccountRepository.findOneByUser_UserName(documentIncommingDTO.getDocument_Incomming_UserReceive());
+		UserAccountEntity userReceive = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocument_Incomming_UserReceive());
 		documentIncommingEntity.setDocument_Incomming_UserReceive(userReceive);
 		
 		documentIncommingEntity = documentIncommingRepository.save(documentIncommingEntity);

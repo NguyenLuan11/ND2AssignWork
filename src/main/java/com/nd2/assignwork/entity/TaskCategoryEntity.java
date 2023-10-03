@@ -24,7 +24,7 @@ public class TaskCategoryEntity {
 	
 	@Column(name = "Category_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Category_Name;
+	private String categoryName;
 	
 	// Foreign key Task_Category_Task
 	@OneToMany(mappedBy = "Task_Category")
@@ -46,11 +46,11 @@ public class TaskCategoryEntity {
 		Task_Category_ID = task_Category_ID;
 	}
 
-	public String getCategory_Name() {
-		return Category_Name;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setCategory_Name(String category_Name) {
-		Category_Name = category_Name;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 }

@@ -42,10 +42,10 @@ public class UserAccountService implements IUserAccountService {
 			userAccountEntity = userAccountConverter.toEntity(userAccountDTO);
 		}
 		
-		PositionEntity positionEntity = positionRepository.findOneByPosition_Name(userAccountDTO.getUser_Position());
+		PositionEntity positionEntity = positionRepository.findOneByPositionName(userAccountDTO.getUser_Position());
 		userAccountEntity.setUser_Position(positionEntity);
 		
-		DepartmentEntity departmentEntity = departmentRepository.findOneByDepartment_Name(userAccountDTO.getUser_Department());
+		DepartmentEntity departmentEntity = departmentRepository.findOneByDepartmentName(userAccountDTO.getUser_Department());
 		userAccountEntity.setDepartment(departmentEntity);
 		
 		userAccountEntity = userAccountRepository.save(userAccountEntity);

@@ -1,5 +1,6 @@
 package com.nd2.assignwork.service.imp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,18 +36,18 @@ public class DiscussService implements IDiscussService {
 	public DiscussDTO save(DiscussDTO discussDTO) {
 		DiscussEntity discussEntity = new DiscussEntity();
 
-		DiscussEntity oldDiscussEntity = discussRepository.findOne(discussDTO.getDiscuss_Time());
+		DiscussEntity oldDiscussEntity = discussRepository.findOneByDiscussTime(discussDTO.getDiscuss_Time());
 		if(discussDTO.getDiscuss_Time() != null) {
 			discussEntity = discussConverter.toEntity(discussDTO, oldDiscussEntity);
 		} else {
 			discussEntity = discussConverter.toEntity(discussDTO);
 		}
 		
-		TaskEntity taskEntity = taskRepository.findOneByTask_Tile(discussDTO.getDiscuss_Task());
-		discussEntity.setDiscuss_Task(taskEntity);
+		TaskEntity taskEntity = taskRepository.findOneByTaskTitle(discussDTO.getDiscuss_Task());
+		discussEntity.setDiscussTask(taskEntity);
 		
-		UserAccountEntity userAccountEntity = userAccountRepository.findOneByUser_UserName(discussDTO.getDiscuss_User());
-		discussEntity.setDiscuss_User(userAccountEntity);
+		UserAccountEntity userAccountEntity = userAccountRepository.findOneByUserUserName(discussDTO.getDiscuss_User());
+		discussEntity.setDiscussUser(userAccountEntity);
 		
 		discussEntity = discussRepository.save(discussEntity);
 		return discussConverter.toDTO(discussEntity);
@@ -55,14 +56,20 @@ public class DiscussService implements IDiscussService {
 	@Override
 	public void delete(Date[] ids) {
 		for(Date id: ids) {
-			discussRepository.delete(id);
+			discussRepository.deleteByDiscussTime(id);
 		}
 	}
 
 	@Override
 	public List<DiscussDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<DiscussDTO> result = new ArrayList<>();
+		List<DiscussEntity> entities = discussRepository.findAll();
+		
+		for(DiscussEntity entity: entities) {
+			DiscussDTO dto = discussConverter.toDTO(entity);
+			result.add(dto);
+		}
+		return result;
 	}
 
 }

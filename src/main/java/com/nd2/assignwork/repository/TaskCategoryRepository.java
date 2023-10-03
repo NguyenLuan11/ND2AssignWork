@@ -7,5 +7,5 @@ import com.nd2.assignwork.entity.TaskCategoryEntity;
 public interface TaskCategoryRepository extends JpaRepository<TaskCategoryEntity, Integer> {
 
 	// Find single TaskCategory by Category_Name
-	TaskCategoryEntity findOneByCategory_Name(String Category_Name);
+	TaskCategoryEntity findOneByCategoryName(String categoryName);
 }
