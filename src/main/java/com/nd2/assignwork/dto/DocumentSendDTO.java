@@ -3,18 +3,13 @@ package com.nd2.assignwork.dto;
 import java.util.Date;
 
 public class DocumentSendDTO {
+	
 	private String Document_Send_ID;
-	
 	private String Document_Send_Title;
-	
 	private String Document_Send_Content;
-	
 	private Date Document_Send_Time;
-	
 	private Date Document_Send_Deadline ;
-	
 	private String Document_Send_UserSend;
-
 	private int Document_Send_State;
 
 	public String getDocument_Send_ID() {
@@ -72,6 +67,4 @@ public class DocumentSendDTO {
 	public void setDocument_Send_State(int document_Send_State) {
 		Document_Send_State = document_Send_State;
 	}
-	
-	
 }

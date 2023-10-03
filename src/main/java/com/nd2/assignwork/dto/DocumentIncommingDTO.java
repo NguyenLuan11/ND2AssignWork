@@ -3,18 +3,13 @@ package com.nd2.assignwork.dto;
 import java.util.Date;
 
 public class DocumentIncommingDTO {
+	
 	private String Document_Incomming_ID;
-	
 	private String Document_Incomming_Title;
-	
 	private String Document_Incomming_Content;
-	
 	private Date Document_Incomming_Time;
-	
 	private int Document_Incomming_State;
-	
 	private String Document_Incomming_UserSend;
-	
 	private String Document_Incomming_UserReceive;
 
 	public String getDocument_Incomming_ID() {
@@ -72,5 +67,5 @@ public class DocumentIncommingDTO {
 	public void setDocument_Incomming_UserReceive(String document_Incomming_UserReceive) {
 		Document_Incomming_UserReceive = document_Incomming_UserReceive;
 	}
-	
+
 }

@@ -2,24 +2,16 @@ package com.nd2.assignwork.dto;
 
 
 public class UserAccountDTO {
+	
 	private String User_ID;
-
 	private String User_UserName;
-	
 	private String User_FullName;
-	
 	private String User_Password;
-
 	private String User_Phone;
-	
 	private String User_Email;
-	
-	private int User_Position;
-	
+	private String User_Position;
 	private String User_Department;
-	
 	private byte[] User_Image;
-
 	private Boolean User_isActive;
 
 	public String getUser_ID() {
@@ -70,11 +62,11 @@ public class UserAccountDTO {
 		User_Email = user_Email;
 	}
 
-	public int getUser_Position() {
+	public String getUser_Position() {
 		return User_Position;
 	}
 
-	public void setUser_Position(int user_Position) {
+	public void setUser_Position(String user_Position) {
 		User_Position = user_Position;
 	}
 
@@ -101,5 +93,4 @@ public class UserAccountDTO {
 	public void setUser_isActive(Boolean user_isActive) {
 		User_isActive = user_isActive;
 	}
-	
 }

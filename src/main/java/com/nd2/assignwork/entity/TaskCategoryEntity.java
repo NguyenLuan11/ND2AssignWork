@@ -20,7 +20,7 @@ public class TaskCategoryEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Task_Category_ID")
-	private int Task_Category_ID;
+	private Integer Task_Category_ID;
 	
 	@Column(name = "Category_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
@@ -38,11 +38,11 @@ public class TaskCategoryEntity {
 		Task = task;
 	}
 
-	public int getTask_Category_ID() {
+	public Integer getTask_Category_ID() {
 		return Task_Category_ID;
 	}
 
-	public void setTask_Category_ID(int task_Category_ID) {
+	public void setTask_Category_ID(Integer task_Category_ID) {
 		Task_Category_ID = task_Category_ID;
 	}
 

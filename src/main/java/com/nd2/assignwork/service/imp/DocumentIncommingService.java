@@ -1,0 +1,69 @@
+package com.nd2.assignwork.service.imp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nd2.assignwork.converter.DocumentIncommingConverter;
+import com.nd2.assignwork.dto.DocumentIncommingDTO;
+import com.nd2.assignwork.entity.DocumentIncommingEntity;
+import com.nd2.assignwork.entity.UserAccountEntity;
+import com.nd2.assignwork.repository.DocumentIncommingRepository;
+import com.nd2.assignwork.repository.UserAccountRepository;
+import com.nd2.assignwork.service.IDocumentIncommingService;
+
+@Service
+public class DocumentIncommingService implements IDocumentIncommingService {
+	
+	@Autowired
+	private DocumentIncommingConverter documentIncommingConverter;
+	
+	@Autowired
+	private DocumentIncommingRepository documentIncommingRepository;
+
+	@Autowired
+	private UserAccountRepository userAccountRepository;
+
+	@Override
+	public DocumentIncommingDTO save(DocumentIncommingDTO documentIncommingDTO) {
+		DocumentIncommingEntity documentIncommingEntity = new DocumentIncommingEntity();
+		
+		DocumentIncommingEntity oldDocumentIncommingEntity = documentIncommingRepository.findOne(documentIncommingDTO.getDocument_Incomming_ID());
+		if(oldDocumentIncommingEntity != null) {
+			documentIncommingEntity = documentIncommingConverter.toEntity(documentIncommingDTO, oldDocumentIncommingEntity);
+		} else {
+			documentIncommingEntity = documentIncommingConverter.toEntity(documentIncommingDTO);
+		}
+		
+		UserAccountEntity userSend = userAccountRepository.findOneByUser_UserName(documentIncommingDTO.getDocument_Incomming_UserSend());
+		documentIncommingEntity.setDocument_Incomming_UserSend(userSend);
+		
+		UserAccountEntity userReceive = userAccountRepository.findOneByUser_UserName(documentIncommingDTO.getDocument_Incomming_UserReceive());
+		documentIncommingEntity.setDocument_Incomming_UserReceive(userReceive);
+		
+		documentIncommingEntity = documentIncommingRepository.save(documentIncommingEntity);
+		return documentIncommingConverter.toDTO(documentIncommingEntity);
+	}
+
+	@Override
+	public void delete(String[] ids) {
+		for(String id: ids) {
+			documentIncommingRepository.delete(id);
+		}
+	}
+
+	@Override
+	public List<DocumentIncommingDTO> findAll() {
+		List<DocumentIncommingDTO> result = new ArrayList<>();
+		List<DocumentIncommingEntity> entities = documentIncommingRepository.findAll();
+		
+		for(DocumentIncommingEntity entity: entities) {
+			DocumentIncommingDTO dto = documentIncommingConverter.toDTO(entity);
+			result.add(dto);
+		}
+		return result;
+	}
+
+}

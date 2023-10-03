@@ -5,22 +5,22 @@ import java.util.Date;
 public class TaskDTO {
 	
 	private String Task_ID;
-	
 	private String Task_Title;
-	
 	private String Task_Content;
-	
-	private int Task_Category;
-	
+	private String Task_Category;
 	private Date Task_DateSend;
-	
 	private Date Task_DateEnd;
-	
 	private String Task_Personal_Send;
-	
 	private String Task_Personal_Receive;
-	
 	private int Task_State;
+
+	public String getTask_Category() {
+		return Task_Category;
+	}
+
+	public void setTask_Category(String task_Category) {
+		Task_Category = task_Category;
+	}
 
 	public String getTask_ID() {
 		return Task_ID;
@@ -44,14 +44,6 @@ public class TaskDTO {
 
 	public void setTask_Content(String task_Content) {
 		Task_Content = task_Content;
-	}
-
-	public int getTask_Category() {
-		return Task_Category;
-	}
-
-	public void setTask_Category(int task_Category) {
-		Task_Category = task_Category;
 	}
 
 	public Date getTask_DateSend() {
@@ -93,6 +85,4 @@ public class TaskDTO {
 	public void setTask_State(int task_State) {
 		Task_State = task_State;
 	}
-	
-	
 }

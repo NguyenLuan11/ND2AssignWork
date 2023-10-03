@@ -20,7 +20,7 @@ public class PermissionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Permission_ID")
-	private int Permission_ID;
+	private Integer Permission_ID;
 	
 	@Column(name = "Permission_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
@@ -38,11 +38,11 @@ public class PermissionEntity {
 		User = user;
 	}
 
-	public int getPermission_ID() {
+	public Integer getPermission_ID() {
 		return Permission_ID;
 	}
 
-	public void setPermission_ID(int permission_ID) {
+	public void setPermission_ID(Integer permission_ID) {
 		Permission_ID = permission_ID;
 	}
 
