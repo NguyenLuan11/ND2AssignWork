@@ -11,43 +11,44 @@ public class TaskConverter {
 	// Convert from DTO to Entity
 	public TaskEntity toEntity(TaskDTO dto) {
 		TaskEntity entity = new TaskEntity();
-		entity.setTask_ID(dto.getTask_ID());
-		entity.setTaskTitle(dto.getTask_Title());
-		entity.setTask_Content(dto.getTask_Content());
-		entity.setTask_DateSend(dto.getTask_DateEnd());
-		entity.setTask_DateEnd(dto.getTask_DateEnd());
-		entity.setTask_State(dto.getTask_State());
+		entity.setTaskID(dto.getTaskID());
+		entity.setTaskTitle(dto.getTaskTitle());
+		entity.setTaskContent(dto.getTaskContent());
+		entity.setTaskDateSend(dto.getTaskDateEnd());
+		entity.setTaskDateEnd(dto.getTaskDateEnd());
+		entity.setTaskState(dto.getTaskState());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public TaskDTO toDTO(TaskEntity entity) {
 		TaskDTO dto = new TaskDTO();
-		dto.setTask_ID(entity.getTask_ID());
-		dto.setTask_Title(entity.getTaskTitle());
-		dto.setTask_Content(entity.getTask_Content());
-		dto.setTask_DateSend(entity.getTask_DateEnd());
-		dto.setTask_DateEnd(entity.getTask_DateEnd());
-		dto.setTask_State(entity.getTask_State());
-		if(entity.getTask_Category() != null) {
-			dto.setTask_Category(entity.getTask_Category().getCategoryName());
+		dto.setTaskID(entity.getTaskID());
+		dto.setTaskTitle(entity.getTaskTitle());
+		dto.setTaskContent(entity.getTaskContent());
+		dto.setTaskDateSend(entity.getTaskDateEnd());
+		dto.setTaskDateEnd(entity.getTaskDateEnd());
+		dto.setTaskState(entity.getTaskState());
+		if(entity.getTaskCategory() != null) {
+			dto.setTaskCategory(entity.getTaskCategory().getCategoryName());
 		}
-		if(entity.getTask_Personal_Send() != null) {
-			dto.setTask_Personal_Send(entity.getTask_Personal_Send().getUser_FullName());
+		if(entity.getTaskPersonalSend() != null) {
+			dto.setTaskPersonalSend(entity.getTaskPersonalSend().getUserFullName());
 		}
-		if(entity.getTask_Personal_Receive() != null) {
-			dto.setTask_Personal_Receive(entity.getTask_Personal_Receive().getUser_FullName());
+		if(entity.getTaskPersonalReceive() != null) {
+			dto.setTaskPersonalReceive(entity.getTaskPersonalReceive().getUserFullName());
 		}
 		return dto;
 	}
 	
 	// Save update Task by convert from DTO to Entity
 	public TaskEntity toEntity(TaskDTO dto, TaskEntity entity) {
-		entity.setTask_ID(dto.getTask_ID());
-		entity.setTaskTitle(dto.getTask_Title());
-		entity.setTask_Content(dto.getTask_Content());
-		entity.setTask_DateSend(dto.getTask_DateEnd());
-		entity.setTask_DateEnd(dto.getTask_DateEnd());
+		entity.setTaskID(dto.getTaskID());
+		entity.setTaskTitle(dto.getTaskTitle());
+		entity.setTaskContent(dto.getTaskContent());
+		entity.setTaskDateSend(dto.getTaskDateEnd());
+		entity.setTaskDateEnd(dto.getTaskDateEnd());
+		entity.setTaskState(dto.getTaskState());
 		return entity;
 	}
 }

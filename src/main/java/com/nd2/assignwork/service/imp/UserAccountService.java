@@ -35,18 +35,18 @@ public class UserAccountService implements IUserAccountService {
 	public UserAccountDTO save(UserAccountDTO userAccountDTO) {
 		UserAccountEntity userAccountEntity = new UserAccountEntity();
 		
-		UserAccountEntity oldUserAccountEntity = userAccountRepository.findOne(userAccountDTO.getUser_ID());
+		UserAccountEntity oldUserAccountEntity = userAccountRepository.findOne(userAccountDTO.getUserID());
 		if(oldUserAccountEntity != null) {
 			userAccountEntity = userAccountConverter.toEntity(userAccountDTO, oldUserAccountEntity);
 		} else {
 			userAccountEntity = userAccountConverter.toEntity(userAccountDTO);
 		}
 		
-		PositionEntity positionEntity = positionRepository.findOneByPositionName(userAccountDTO.getUser_Position());
-		userAccountEntity.setUser_Position(positionEntity);
+		PositionEntity positionEntity = positionRepository.findOneByPositionName(userAccountDTO.getUserPosition());
+		userAccountEntity.setUserPosition(positionEntity);
 		
-		DepartmentEntity departmentEntity = departmentRepository.findOneByDepartmentName(userAccountDTO.getUser_Department());
-		userAccountEntity.setDepartment(departmentEntity);
+		DepartmentEntity departmentEntity = departmentRepository.findOneByDepartmentName(userAccountDTO.getUserDepartment());
+		userAccountEntity.setUserDepartment(departmentEntity);
 		
 		userAccountEntity = userAccountRepository.save(userAccountEntity);
 		return userAccountConverter.toDTO(userAccountEntity);

@@ -30,18 +30,18 @@ public class DocumentIncommingService implements IDocumentIncommingService {
 	public DocumentIncommingDTO save(DocumentIncommingDTO documentIncommingDTO) {
 		DocumentIncommingEntity documentIncommingEntity = new DocumentIncommingEntity();
 		
-		DocumentIncommingEntity oldDocumentIncommingEntity = documentIncommingRepository.findOne(documentIncommingDTO.getDocument_Incomming_ID());
+		DocumentIncommingEntity oldDocumentIncommingEntity = documentIncommingRepository.findOne(documentIncommingDTO.getDocumentIncommingID());
 		if(oldDocumentIncommingEntity != null) {
 			documentIncommingEntity = documentIncommingConverter.toEntity(documentIncommingDTO, oldDocumentIncommingEntity);
 		} else {
 			documentIncommingEntity = documentIncommingConverter.toEntity(documentIncommingDTO);
 		}
 		
-		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocument_Incomming_UserSend());
-		documentIncommingEntity.setDocument_Incomming_UserSend(userSend);
+		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocumentIncommingUserSend());
+		documentIncommingEntity.setDocumentIncommingUserSend(userSend);
 		
-		UserAccountEntity userReceive = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocument_Incomming_UserReceive());
-		documentIncommingEntity.setDocument_Incomming_UserReceive(userReceive);
+		UserAccountEntity userReceive = userAccountRepository.findOneByUserUserName(documentIncommingDTO.getDocumentIncommingUserReceive());
+		documentIncommingEntity.setDocumentIncommingUserReceive(userReceive);
 		
 		documentIncommingEntity = documentIncommingRepository.save(documentIncommingEntity);
 		return documentIncommingConverter.toDTO(documentIncommingEntity);

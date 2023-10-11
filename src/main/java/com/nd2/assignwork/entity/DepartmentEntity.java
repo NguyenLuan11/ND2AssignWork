@@ -19,7 +19,7 @@ public class DepartmentEntity {
 
 	@Id
 	@Column(name = "Department_ID", columnDefinition = "varchar(20)")
-	private String Department_ID;
+	private String departmentID;
 	
 	@Column(name = "Department_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
@@ -28,20 +28,11 @@ public class DepartmentEntity {
 	// Foreign key Department_Head
 	@OneToOne
 	@JoinColumn(name = "Department_Head")
-	@NotBlank
-	private UserAccountEntity Department_Head;
+	private UserAccountEntity departmentHead;
 	
 	// Foreign key User_Department
-	@OneToMany(mappedBy = "User_Department")
+	@OneToMany(mappedBy = "userDepartment")
 	private List<UserAccountEntity> User = new ArrayList<>();
-
-	public String getDepartment_ID() {
-		return Department_ID;
-	}
-
-	public void setDepartment_ID(String department_ID) {
-		Department_ID = department_ID;
-	}
 
 	public String getDepartmentName() {
 		return departmentName;
@@ -51,19 +42,27 @@ public class DepartmentEntity {
 		this.departmentName = departmentName;
 	}
 
-	public UserAccountEntity getDepartment_Head() {
-		return Department_Head;
-	}
-
-	public void setDepartment_Head(UserAccountEntity department_Head) {
-		Department_Head = department_Head;
-	}
-
 	public List<UserAccountEntity> getUser() {
 		return User;
 	}
 
 	public void setUser(List<UserAccountEntity> user) {
 		User = user;
+	}
+
+	public String getDepartmentID() {
+		return departmentID;
+	}
+
+	public void setDepartmentID(String departmentID) {
+		this.departmentID = departmentID;
+	}
+
+	public UserAccountEntity getDepartmentHead() {
+		return departmentHead;
+	}
+
+	public void setDepartmentHead(UserAccountEntity departmentHead) {
+		this.departmentHead = departmentHead;
 	}
 }

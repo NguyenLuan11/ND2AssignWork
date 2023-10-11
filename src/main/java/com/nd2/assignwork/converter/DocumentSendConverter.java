@@ -11,38 +11,38 @@ public class DocumentSendConverter {
 	// Convert from DTO to Entity
 	public DocumentSendEntity toEntity(DocumentSendDTO dto) {
 		DocumentSendEntity entity = new DocumentSendEntity();
-		entity.setDocument_Send_ID(dto.getDocument_Send_ID());
-		entity.setDocument_Send_Title(dto.getDocument_Send_Title());
-		entity.setDocument_Send_Content(dto.getDocument_Send_Content());
-		entity.setDocument_Send_Time(dto.getDocument_Send_Time());
-		entity.setDocument_Send_Deadline(dto.getDocument_Send_Deadline());
-		entity.setDocument_Send_State(dto.getDocument_Send_State());
+		entity.setDocumentSendID(dto.getDocumentSendID());
+		entity.setDocumentSendTitle(dto.getDocumentSendTitle());
+		entity.setDocumentSendContent(dto.getDocumentSendContent());
+		entity.setDocumentSendTime(dto.getDocumentSendTime());
+		entity.setDocumentSendDeadline(dto.getDocumentSendDeadline());
+		entity.setDocumentSendState(dto.getDocumentSendState());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public DocumentSendDTO toDTO(DocumentSendEntity entity) {
 		DocumentSendDTO dto = new DocumentSendDTO();
-		dto.setDocument_Send_ID(entity.getDocument_Send_ID());
-		dto.setDocument_Send_Title(entity.getDocument_Send_Title());
-		dto.setDocument_Send_Content(entity.getDocument_Send_Content());
-		dto.setDocument_Send_Time(entity.getDocument_Send_Time());
-		dto.setDocument_Send_Deadline(entity.getDocument_Send_Deadline());
-		dto.setDocument_Send_State(entity.getDocument_Send_State());
-		if(entity.getDocument_Send_UserSend() != null) {
-			dto.setDocument_Send_UserSend(entity.getDocument_Send_UserSend().getUser_FullName());
+		dto.setDocumentSendID(entity.getDocumentSendID());
+		dto.setDocumentSendTitle(entity.getDocumentSendTitle());
+		dto.setDocumentSendContent(entity.getDocumentSendContent());
+		dto.setDocumentSendTime(entity.getDocumentSendTime());
+		dto.setDocumentSendDeadline(entity.getDocumentSendDeadline());
+		dto.setDocumentSendState(entity.getDocumentSendState());
+		if(entity.getDocumentSendUserSend() != null) {
+			dto.setDocumentSendUserSend(entity.getDocumentSendUserSend().getUserFullName());
 		}
 		return dto;
 	}
 	
 	// Save update DocumentSend by convert from DTO to Entity
 	public DocumentSendEntity toEntity(DocumentSendDTO dto, DocumentSendEntity entity) {
-		entity.setDocument_Send_ID(dto.getDocument_Send_ID());
-		entity.setDocument_Send_Title(dto.getDocument_Send_Title());
-		entity.setDocument_Send_Content(dto.getDocument_Send_Content());
-		entity.setDocument_Send_Time(dto.getDocument_Send_Time());
-		entity.setDocument_Send_Deadline(dto.getDocument_Send_Deadline());
-		entity.setDocument_Send_State(dto.getDocument_Send_State());
+		entity.setDocumentSendID(dto.getDocumentSendID());
+		entity.setDocumentSendTitle(dto.getDocumentSendTitle());
+		entity.setDocumentSendContent(dto.getDocumentSendContent());
+		entity.setDocumentSendTime(dto.getDocumentSendTime());
+		entity.setDocumentSendDeadline(dto.getDocumentSendDeadline());
+		entity.setDocumentSendState(dto.getDocumentSendState());
 		return entity;
 	}
 }

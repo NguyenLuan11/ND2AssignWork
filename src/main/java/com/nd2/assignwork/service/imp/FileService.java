@@ -25,7 +25,7 @@ public class FileService implements IFileService {
 	public FileDTO save(FileDTO fileDTO) {
 		FileEntity fileEntity = new FileEntity();
 
-		FileEntity oldFileEntity = fileRepository.findOne(fileDTO.getFile_ID());
+		FileEntity oldFileEntity = fileRepository.findOne(fileDTO.getFileID());
 		if(oldFileEntity != null) {
 			fileEntity = fileConverter.toEntity(fileDTO, oldFileEntity);
 		} else {

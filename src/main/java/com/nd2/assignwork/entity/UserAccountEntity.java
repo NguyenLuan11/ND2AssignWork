@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -24,7 +25,7 @@ public class UserAccountEntity {
 
 	@Id
 	@Column(name = "User_ID", columnDefinition = "varchar(20)")
-	private String User_ID;
+	private String userID;
 	
 	@Column(name = "User_UserName", columnDefinition = "varchar(30)")
 	@NotBlank
@@ -32,48 +33,48 @@ public class UserAccountEntity {
 	
 	@Column(name = "User_FullName", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String User_FullName;
+	private String userFullName;
 	
 	@Column(name = "User_Password", columnDefinition = "varchar(255)")
 	@NotBlank
-	private String User_Password;
+	private String userPassword;
 	
 	@Column(name = "User_Phone", columnDefinition = "varchar(12)")
 	@NotBlank
-	private String User_Phone;
+	private String userPhone;
 	
 	@Column(name = "User_Email", columnDefinition = "varchar(255)")
 	@NotBlank
-	private String User_Email;
+	private String userEmail;
 	
 	@Column(name = "User_Image", columnDefinition = "varbinary(60000)")
-	private byte[] User_Image;
+	private byte[] userImage;
 	
 	@Column(name = "User_isActive", columnDefinition = "bit default 1")
-	private Boolean User_isActive;
+	private Boolean userIsActive;
 	
 	// Foreign key User_Position
 	@ManyToOne
 	@JoinColumn(name = "User_Position")
-	@NotBlank
-	private PositionEntity User_Position;
+	@NotNull
+	private PositionEntity userPosition;
 	
 	// Foreign key User_Department
 	@ManyToOne
 	@JoinColumn(name = "User_Department")
-	@NotBlank
-	private DepartmentEntity User_Department;
+	@NotNull
+	private DepartmentEntity userDepartment;
 	
 	// Foreign key Task_Personal_Send
-	@OneToMany(mappedBy = "Task_Personal_Send")
-	private List<TaskEntity> TaskPersonalSend = new ArrayList<>();
+	@OneToMany(mappedBy = "taskPersonalSend")
+	private List<TaskEntity> taskPersonalSend = new ArrayList<>();
 	
 	// Foreign key Task_Personal_Receive
-	@OneToMany(mappedBy = "Task_Personal_Receive")
-	private List<TaskEntity> TaskPersonalReceive = new ArrayList<>();
+	@OneToMany(mappedBy = "taskPersonalReceive")
+	private List<TaskEntity> taskPersonalReceive = new ArrayList<>();
 	
 	// Foreign key Department_Head
-	@OneToOne(mappedBy = "Department_Head")
+	@OneToOne(mappedBy = "departmentHead")
 	private DepartmentEntity Department;
 	
 	// Foreign key Discuss_User
@@ -88,56 +89,24 @@ public class UserAccountEntity {
 	private Set<PermissionEntity> Permission = new HashSet<>();
 	
 	// Foreign key Document_Incomming_UserSend
-	@OneToMany(mappedBy = "Document_Incomming_UserSend")
-	private List<DocumentIncommingEntity> DocumentIncommingUserSend = new ArrayList<>();
+	@OneToMany(mappedBy = "documentIncommingUserSend")
+	private List<DocumentIncommingEntity> documentIncommingUserSend = new ArrayList<>();
 	
 	// Foreign key Document_Incomming_UserReceive
-	@OneToMany(mappedBy = "Document_Incomming_UserReceive")
-	private List<DocumentIncommingEntity> DocumentIncommingUserReceive = new ArrayList<>();
+	@OneToMany(mappedBy = "documentIncommingUserReceive")
+	private List<DocumentIncommingEntity> documentIncommingUserReceive = new ArrayList<>();
 	
 	// Foreign key Document_Send_UserSend
-	@OneToMany(mappedBy = "Document_Send_UserSend")
-	private List<DocumentSendEntity> DocumentSendUserSend = new ArrayList<>();
+	@OneToMany(mappedBy = "documentSendUserSend")
+	private List<DocumentSendEntity> documentSendUserSend = new ArrayList<>();
 	
 	// Foreign key User_Receive_Document
 	@ManyToMany
 	@JoinTable(name = "User_Receive_Document",
 			joinColumns = @JoinColumn(name = "User_ID"),
 			inverseJoinColumns = @JoinColumn(name = "Document_Send_ID"))
-	private Set<DocumentSendEntity> DocumentSend = new HashSet<>();
+	private Set<DocumentSendEntity> documentSend = new HashSet<>();
 	
-	public Set<DocumentSendEntity> getDocumentSend() {
-		return DocumentSend;
-	}
-
-	public void setDocumentSend(Set<DocumentSendEntity> documentSend) {
-		DocumentSend = documentSend;
-	}
-
-	public List<DocumentSendEntity> getDocumentSendUserSend() {
-		return DocumentSendUserSend;
-	}
-
-	public void setDocumentSendUserSend(List<DocumentSendEntity> documentSendUserSend) {
-		DocumentSendUserSend = documentSendUserSend;
-	}
-
-	public List<DocumentIncommingEntity> getDocumentIncommingUserSend() {
-		return DocumentIncommingUserSend;
-	}
-
-	public void setDocumentIncommingUserSend(List<DocumentIncommingEntity> documentIncommingUserSend) {
-		DocumentIncommingUserSend = documentIncommingUserSend;
-	}
-
-	public List<DocumentIncommingEntity> getDocumentIncommingUserReceive() {
-		return DocumentIncommingUserReceive;
-	}
-
-	public void setDocumentIncommingUserReceive(List<DocumentIncommingEntity> documentIncommingUserReceive) {
-		DocumentIncommingUserReceive = documentIncommingUserReceive;
-	}
-
 	public Set<PermissionEntity> getPermission() {
 		return Permission;
 	}
@@ -153,15 +122,7 @@ public class UserAccountEntity {
 	public void setDiscuss(List<DiscussEntity> discuss) {
 		Discuss = discuss;
 	}
-
-	public String getUser_ID() {
-		return User_ID;
-	}
-
-	public void setUser_ID(String user_ID) {
-		User_ID = user_ID;
-	}
-
+	
 	public String getUserUserName() {
 		return userUserName;
 	}
@@ -169,92 +130,132 @@ public class UserAccountEntity {
 	public void setUserUserName(String userUserName) {
 		this.userUserName = userUserName;
 	}
-
-	public String getUser_FullName() {
-		return User_FullName;
-	}
-
-	public void setUser_FullName(String user_FullName) {
-		User_FullName = user_FullName;
-	}
-
-	public String getUser_Password() {
-		return User_Password;
-	}
-
-	public void setUser_Password(String user_Password) {
-		User_Password = user_Password;
-	}
-
-	public String getUser_Phone() {
-		return User_Phone;
-	}
-
-	public void setUser_Phone(String user_Phone) {
-		User_Phone = user_Phone;
-	}
-
-	public String getUser_Email() {
-		return User_Email;
-	}
-
-	public void setUser_Email(String user_Email) {
-		User_Email = user_Email;
-	}
-
-	public byte[] getUser_Image() {
-		return User_Image;
-	}
-
-	public void setUser_Image(byte[] user_Image) {
-		User_Image = user_Image;
-	}
-
-	public Boolean getUser_isActive() {
-		return User_isActive;
-	}
-
-	public void setUser_isActive(Boolean user_isActive) {
-		User_isActive = user_isActive;
-	}
-
-	public PositionEntity getUser_Position() {
-		return User_Position;
-	}
-
-	public void setUser_Position(PositionEntity user_Position) {
-		User_Position = user_Position;
-	}
-
-	public DepartmentEntity getUser_Department() {
-		return User_Department;
-	}
-
-	public void setUser_Department(DepartmentEntity user_Department) {
-		User_Department = user_Department;
-	}
-
-	public List<TaskEntity> getTaskPersonalSend() {
-		return TaskPersonalSend;
-	}
-
-	public void setTaskPersonalSend(List<TaskEntity> taskPersonalSend) {
-		TaskPersonalSend = taskPersonalSend;
-	}
-
-	public List<TaskEntity> getTaskPersonalReceive() {
-		return TaskPersonalReceive;
-	}
-
-	public void setTaskPersonalReceive(List<TaskEntity> taskPersonalReceive) {
-		TaskPersonalReceive = taskPersonalReceive;
-	}
-
+	
 	public DepartmentEntity getDepartment() {
 		return Department;
 	}
 
 	public void setDepartment(DepartmentEntity department) {
 		Department = department;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public String getUserFullName() {
+		return userFullName;
+	}
+
+	public void setUserFullName(String userFullName) {
+		this.userFullName = userFullName;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public byte[] getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(byte[] userImage) {
+		this.userImage = userImage;
+	}
+
+	public Boolean getUserIsActive() {
+		return userIsActive;
+	}
+
+	public void setUserIsActive(Boolean userIsActive) {
+		this.userIsActive = userIsActive;
+	}
+
+	public PositionEntity getUserPosition() {
+		return userPosition;
+	}
+
+	public void setUserPosition(PositionEntity userPosition) {
+		this.userPosition = userPosition;
+	}
+
+	public DepartmentEntity getUserDepartment() {
+		return userDepartment;
+	}
+
+	public void setUserDepartment(DepartmentEntity userDepartment) {
+		this.userDepartment = userDepartment;
+	}
+
+	public List<TaskEntity> getTaskPersonalSend() {
+		return taskPersonalSend;
+	}
+
+	public void setTaskPersonalSend(List<TaskEntity> taskPersonalSend) {
+		this.taskPersonalSend = taskPersonalSend;
+	}
+
+	public List<TaskEntity> getTaskPersonalReceive() {
+		return taskPersonalReceive;
+	}
+
+	public void setTaskPersonalReceive(List<TaskEntity> taskPersonalReceive) {
+		this.taskPersonalReceive = taskPersonalReceive;
+	}
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserSend() {
+		return documentIncommingUserSend;
+	}
+
+	public void setDocumentIncommingUserSend(List<DocumentIncommingEntity> documentIncommingUserSend) {
+		this.documentIncommingUserSend = documentIncommingUserSend;
+	}
+
+	public List<DocumentIncommingEntity> getDocumentIncommingUserReceive() {
+		return documentIncommingUserReceive;
+	}
+
+	public void setDocumentIncommingUserReceive(List<DocumentIncommingEntity> documentIncommingUserReceive) {
+		this.documentIncommingUserReceive = documentIncommingUserReceive;
+	}
+
+	public List<DocumentSendEntity> getDocumentSendUserSend() {
+		return documentSendUserSend;
+	}
+
+	public void setDocumentSendUserSend(List<DocumentSendEntity> documentSendUserSend) {
+		this.documentSendUserSend = documentSendUserSend;
+	}
+
+	public Set<DocumentSendEntity> getDocumentSend() {
+		return documentSend;
+	}
+
+	public void setDocumentSend(Set<DocumentSendEntity> documentSend) {
+		this.documentSend = documentSend;
 	}
 }

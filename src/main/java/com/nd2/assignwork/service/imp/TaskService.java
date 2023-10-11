@@ -35,21 +35,21 @@ public class TaskService implements ITaskService {
 	public TaskDTO save(TaskDTO taskDTO) {
 		TaskEntity taskEntity = new TaskEntity();
 		
-		TaskEntity oldTaskEntity = taskRepository.findOne(taskDTO.getTask_ID());
+		TaskEntity oldTaskEntity = taskRepository.findOne(taskDTO.getTaskID());
 		if(oldTaskEntity != null) {
 			taskEntity = taskConverter.toEntity(taskDTO, oldTaskEntity);
 		} else {
 			taskEntity = taskConverter.toEntity(taskDTO);
 		}
 		
-		TaskCategoryEntity taskCategoryEntity = taskCategoryRepository.findOneByCategoryName(taskDTO.getTask_Category());
-		taskEntity.setTask_Category(taskCategoryEntity);
+		TaskCategoryEntity taskCategoryEntity = taskCategoryRepository.findOneByCategoryName(taskDTO.getTaskCategory());
+		taskEntity.setTaskCategory(taskCategoryEntity);
 		
-		UserAccountEntity userAccountSend = userAccountRepository.findOneByUserUserName(taskDTO.getTask_Personal_Send());
-		taskEntity.setTask_Personal_Send(userAccountSend);
+		UserAccountEntity userAccountSend = userAccountRepository.findOneByUserUserName(taskDTO.getTaskPersonalSend());
+		taskEntity.setTaskPersonalSend(userAccountSend);
 		
-		UserAccountEntity userAccountReceive = userAccountRepository.findOneByUserUserName(taskDTO.getTask_Personal_Receive());
-		taskEntity.setTask_Personal_Receive(userAccountReceive);
+		UserAccountEntity userAccountReceive = userAccountRepository.findOneByUserUserName(taskDTO.getTaskPersonalReceive());
+		taskEntity.setTaskPersonalReceive(userAccountReceive);
 		
 		taskEntity = taskRepository.save(taskEntity);
 		return taskConverter.toDTO(taskEntity);

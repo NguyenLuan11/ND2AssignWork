@@ -1,23 +1,23 @@
 package com.nd2.assignwork.dto;
 
 public class PermissionDTO {
-	
-	private Integer Permission_ID;
-	private String Permission_Name;
 
-	public Integer getPermission_ID() {
-		return Permission_ID;
+	private Integer permissionID;
+	private String permissionName;
+
+	public Integer getPermissionID() {
+		return permissionID;
 	}
 
-	public void setPermission_ID(Integer permission_ID) {
-		Permission_ID = permission_ID;
+	public void setPermissionID(Integer permissionID) {
+		this.permissionID = permissionID;
 	}
 
-	public String getPermission_Name() {
-		return Permission_Name;
+	public String getPermissionName() {
+		return permissionName;
 	}
 
-	public void setPermission_Name(String permission_Name) {
-		Permission_Name = permission_Name;
+	public void setPermissionName(String permissionName) {
+		this.permissionName = permissionName;
 	}
 }

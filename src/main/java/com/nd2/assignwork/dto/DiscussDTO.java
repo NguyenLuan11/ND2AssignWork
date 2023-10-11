@@ -4,41 +4,40 @@ import java.util.Date;
 
 public class DiscussDTO {
 
-	private String Discuss_Task;
-	private String Discuss_User;
-	private Date Discuss_Time;
-	private String Discuss_Content;
-
-	public String getDiscuss_Task() {
-		return Discuss_Task;
+	private String discussTask;
+	private String discussUser;
+	private Date discussTime;
+	private String discussContent;
+	
+	public String getDiscussTask() {
+		return discussTask;
 	}
 
-	public void setDiscuss_Task(String discuss_Task) {
-		Discuss_Task = discuss_Task;
+	public void setDiscussTask(String discussTask) {
+		this.discussTask = discussTask;
 	}
 
-	public String getDiscuss_User() {
-		return Discuss_User;
+	public String getDiscussUser() {
+		return discussUser;
 	}
 
-	public void setDiscuss_User(String discuss_User) {
-		Discuss_User = discuss_User;
+	public void setDiscussUser(String discussUser) {
+		this.discussUser = discussUser;
 	}
 
-	public Date getDiscuss_Time() {
-		return Discuss_Time;
+	public Date getDiscussTime() {
+		return discussTime;
 	}
 
-	public void setDiscuss_Time(Date discuss_Time) {
-		Discuss_Time = discuss_Time;
+	public void setDiscussTime(Date discussTime) {
+		this.discussTime = discussTime;
 	}
 
-	public String getDiscuss_Content() {
-		return Discuss_Content;
+	public String getDiscussContent() {
+		return discussContent;
 	}
 
-	public void setDiscuss_Content(String discuss_Content) {
-		Discuss_Content = discuss_Content;
+	public void setDiscussContent(String discussContent) {
+		this.discussContent = discussContent;
 	}
-
 }

@@ -1,23 +1,23 @@
 package com.nd2.assignwork.dto;
 
 public class FileDTO {
-	
-	private String File_ID;
-	private String File_Name;
 
-	public String getFile_ID() {
-		return File_ID;
+	private String fileID;
+	private String fileName;
+
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFile_ID(String file_ID) {
-		File_ID = file_ID;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
-	public String getFile_Name() {
-		return File_Name;
+	public String getFileID() {
+		return fileID;
 	}
 
-	public void setFile_Name(String file_Name) {
-		File_Name = file_Name;
+	public void setFileID(String fileID) {
+		this.fileID = fileID;
 	}
 }

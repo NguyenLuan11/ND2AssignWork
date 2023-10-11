@@ -3,69 +3,68 @@ package com.nd2.assignwork.dto;
 import java.util.Date;
 
 public class DocumentIncommingDTO {
-	
-	private String Document_Incomming_ID;
-	private String Document_Incomming_Title;
-	private String Document_Incomming_Content;
-	private Date Document_Incomming_Time;
-	private int Document_Incomming_State;
-	private String Document_Incomming_UserSend;
-	private String Document_Incomming_UserReceive;
 
-	public String getDocument_Incomming_ID() {
-		return Document_Incomming_ID;
+	private String documentIncommingID;
+	private String documentIncommingTitle;
+	private String documentIncommingContent;
+	private Date documentIncommingTime;
+	private int documentIncommingState;
+	private String documentIncommingUserSend;
+	private String documentIncommingUserReceive;
+
+	public String getDocumentIncommingID() {
+		return documentIncommingID;
 	}
 
-	public void setDocument_Incomming_ID(String document_Incomming_ID) {
-		Document_Incomming_ID = document_Incomming_ID;
+	public void setDocumentIncommingID(String documentIncommingID) {
+		this.documentIncommingID = documentIncommingID;
 	}
 
-	public String getDocument_Incomming_Title() {
-		return Document_Incomming_Title;
+	public String getDocumentIncommingTitle() {
+		return documentIncommingTitle;
 	}
 
-	public void setDocument_Incomming_Title(String document_Incomming_Title) {
-		Document_Incomming_Title = document_Incomming_Title;
+	public void setDocumentIncommingTitle(String documentIncommingTitle) {
+		this.documentIncommingTitle = documentIncommingTitle;
 	}
 
-	public String getDocument_Incomming_Content() {
-		return Document_Incomming_Content;
+	public String getDocumentIncommingContent() {
+		return documentIncommingContent;
 	}
 
-	public void setDocument_Incomming_Content(String document_Incomming_Content) {
-		Document_Incomming_Content = document_Incomming_Content;
+	public void setDocumentIncommingContent(String documentIncommingContent) {
+		this.documentIncommingContent = documentIncommingContent;
 	}
 
-	public Date getDocument_Incomming_Time() {
-		return Document_Incomming_Time;
+	public Date getDocumentIncommingTime() {
+		return documentIncommingTime;
 	}
 
-	public void setDocument_Incomming_Time(Date document_Incomming_Time) {
-		Document_Incomming_Time = document_Incomming_Time;
+	public void setDocumentIncommingTime(Date documentIncommingTime) {
+		this.documentIncommingTime = documentIncommingTime;
 	}
 
-	public int getDocument_Incomming_State() {
-		return Document_Incomming_State;
+	public int getDocumentIncommingState() {
+		return documentIncommingState;
 	}
 
-	public void setDocument_Incomming_State(int document_Incomming_State) {
-		Document_Incomming_State = document_Incomming_State;
+	public void setDocumentIncommingState(int documentIncommingState) {
+		this.documentIncommingState = documentIncommingState;
 	}
 
-	public String getDocument_Incomming_UserSend() {
-		return Document_Incomming_UserSend;
+	public String getDocumentIncommingUserSend() {
+		return documentIncommingUserSend;
 	}
 
-	public void setDocument_Incomming_UserSend(String document_Incomming_UserSend) {
-		Document_Incomming_UserSend = document_Incomming_UserSend;
+	public void setDocumentIncommingUserSend(String documentIncommingUserSend) {
+		this.documentIncommingUserSend = documentIncommingUserSend;
 	}
 
-	public String getDocument_Incomming_UserReceive() {
-		return Document_Incomming_UserReceive;
+	public String getDocumentIncommingUserReceive() {
+		return documentIncommingUserReceive;
 	}
 
-	public void setDocument_Incomming_UserReceive(String document_Incomming_UserReceive) {
-		Document_Incomming_UserReceive = document_Incomming_UserReceive;
+	public void setDocumentIncommingUserReceive(String documentIncommingUserReceive) {
+		this.documentIncommingUserReceive = documentIncommingUserReceive;
 	}
-
 }

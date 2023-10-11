@@ -20,22 +20,22 @@ public class PositionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Position_ID")
-	private Integer Position_ID;
+	private Integer positionID;
 	
 	@Column(name = "Position_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
 	private String positionName;
 	
 	// Foreign key User_Position
-	@OneToMany(mappedBy = "User_Position")
+	@OneToMany(mappedBy = "userPosition")
 	private List<UserAccountEntity> User = new ArrayList<>();
-
-	public Integer getPosition_ID() {
-		return Position_ID;
+	
+	public Integer getPositionID() {
+		return positionID;
 	}
 
-	public void setPosition_ID(Integer position_ID) {
-		Position_ID = position_ID;
+	public void setPositionID(Integer positionID) {
+		this.positionID = positionID;
 	}
 
 	public String getPositionName() {

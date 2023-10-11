@@ -20,11 +20,11 @@ public class PermissionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Permission_ID")
-	private Integer Permission_ID;
+	private Integer permissionID;
 	
 	@Column(name = "Permission_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Permission_Name;
+	private String permissionName;
 	
 	// Foreign key User_Permission
 	@ManyToMany(mappedBy = "Permission")
@@ -38,19 +38,19 @@ public class PermissionEntity {
 		User = user;
 	}
 
-	public Integer getPermission_ID() {
-		return Permission_ID;
+	public Integer getPermissionID() {
+		return permissionID;
 	}
 
-	public void setPermission_ID(Integer permission_ID) {
-		Permission_ID = permission_ID;
+	public void setPermissionID(Integer permissionID) {
+		this.permissionID = permissionID;
 	}
 
-	public String getPermission_Name() {
-		return Permission_Name;
+	public String getPermissionName() {
+		return permissionName;
 	}
 
-	public void setPermission_Name(String permission_Name) {
-		Permission_Name = permission_Name;
+	public void setPermissionName(String permissionName) {
+		this.permissionName = permissionName;
 	}
 }

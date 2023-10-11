@@ -11,26 +11,26 @@ public class DepartmentConverter {
 	// Convert from DTO to Entity
 	public DepartmentEntity toEntity(DepartmentDTO dto) {
 		DepartmentEntity entity = new DepartmentEntity();
-		entity.setDepartment_ID(dto.getDepartment_ID());
-		entity.setDepartmentName(dto.getDepartment_Name());
+		entity.setDepartmentID(dto.getDepartmentID());
+		entity.setDepartmentName(dto.getDepartmentName());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public DepartmentDTO toDTO(DepartmentEntity entity) {
 		DepartmentDTO dto = new DepartmentDTO();
-		dto.setDepartment_ID(entity.getDepartment_ID());
-		dto.setDepartment_Name(entity.getDepartmentName());
-		if(entity.getDepartment_Head() != null) {
-			dto.setDepartment_Head(entity.getDepartment_Head().getUser_FullName());
+		dto.setDepartmentID(entity.getDepartmentID());
+		dto.setDepartmentName(entity.getDepartmentName());
+		if(entity.getDepartmentHead() != null) {
+			dto.setDepartmentHead(entity.getDepartmentHead().getUserFullName());
 		}
 		return dto;
 	}
 	
 	// Save update Department by convert from DTO to Entity
 	public DepartmentEntity toEntity(DepartmentDTO dto, DepartmentEntity entity) {
-		entity.setDepartment_ID(dto.getDepartment_ID());
-		entity.setDepartmentName(dto.getDepartment_Name());
+		entity.setDepartmentID(dto.getDepartmentID());
+		entity.setDepartmentName(dto.getDepartmentName());
 		return entity;
 	}
 }

@@ -11,29 +11,29 @@ public class DiscussConverter {
 	// Convert from DTO to Entity
 	public DiscussEntity toEntity(DiscussDTO dto) {
 		DiscussEntity entity = new DiscussEntity();
-		entity.setDiscussTime(dto.getDiscuss_Time());
-		entity.setDiscuss_Content(dto.getDiscuss_Content());
+		entity.setDiscussTime(dto.getDiscussTime());
+		entity.setDiscussContent(dto.getDiscussContent());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public DiscussDTO toDTO(DiscussEntity entity) {
 		DiscussDTO dto = new DiscussDTO();
-		dto.setDiscuss_Time(entity.getDiscussTime());
-		dto.setDiscuss_Content(entity.getDiscuss_Content());
+		dto.setDiscussTime(entity.getDiscussTime());
+		dto.setDiscussContent(entity.getDiscussContent());
 		if(entity.getDiscussTask() != null) {
-			dto.setDiscuss_Task(entity.getDiscussTask().getTaskTitle());
+			dto.setDiscussTask(entity.getDiscussTask().getTaskTitle());
 		}
 		if(entity.getDiscussUser() != null) {
-			dto.setDiscuss_User(entity.getDiscussUser().getUser_FullName());
+			dto.setDiscussUser(entity.getDiscussUser().getUserFullName());
 		}
 		return dto;
 	}
 	
 	// Save update Discuss by convert from DTO to Entity
 	public DiscussEntity toEntity(DiscussDTO dto, DiscussEntity entity) {
-		entity.setDiscussTime(dto.getDiscuss_Time());
-		entity.setDiscuss_Content(dto.getDiscuss_Content());
+		entity.setDiscussTime(dto.getDiscussTime());
+		entity.setDiscussContent(dto.getDiscussContent());
 		return entity;
 	}
 }

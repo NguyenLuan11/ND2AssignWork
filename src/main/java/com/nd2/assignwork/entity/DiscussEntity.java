@@ -41,7 +41,7 @@ public class DiscussEntity implements Serializable {
 	
 	@Column(name = "Discuss_Content", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Discuss_Content;
+	private String discussContent;
 
 	public TaskEntity getDiscussTask() {
 		return discussTask;
@@ -70,12 +70,12 @@ public class DiscussEntity implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	public String getDiscuss_Content() {
-		return Discuss_Content;
+
+	public String getDiscussContent() {
+		return discussContent;
 	}
 
-	public void setDiscuss_Content(String discuss_Content) {
-		Discuss_Content = discuss_Content;
+	public void setDiscussContent(String discussContent) {
+		this.discussContent = discussContent;
 	}
 }

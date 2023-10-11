@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
@@ -24,93 +25,101 @@ public class DocumentIncommingEntity {
 
 	@Id
 	@Column(name = "Document_Incomming_ID", columnDefinition = "varchar(20)")
-	private String Document_Incomming_ID;
+	private String documentIncommingID;
 	
 	@Column(name = "Document_Incomming_Title", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Document_Incomming_Title;
+	private String documentIncommingTitle;
 	
 	@Column(name = "Document_Incomming_Content", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String Document_Incomming_Content;
+	private String documentIncommingContent;
 	
 	@Column(name = "Document_Incomming_Time", columnDefinition = "datetime")
 	@CreatedDate
-	@NotBlank
-	private Date Document_Incomming_Time;
+	@NotNull
+	private Date documentIncommingTime;
 	
 	@Column(name = "Document_Incomming_State", columnDefinition = "int default 0")
-	private int Document_Incomming_State;
+	private int documentIncommingState;
 	
 	// Foreign key Document_Incomming_UserSend
 	@ManyToOne
 	@JoinColumn(name = "Document_Incomming_UserSend")
-	@NotBlank
-	private UserAccountEntity Document_Incomming_UserSend;
+	@NotNull
+	private UserAccountEntity documentIncommingUserSend;
 	
 	// Foreign key Document_Incomming_UserReceive
 	@ManyToOne
 	@JoinColumn(name = "Document_Incomming_UserReceive")
-	@NotBlank
-	private UserAccountEntity Document_Incomming_UserReceive;
+	@NotNull
+	private UserAccountEntity documentIncommingUserReceive;
 	
 	// Foreign key Document_Incomming_File
-	@ManyToMany(mappedBy = "DocumentIncomming")
+	@ManyToMany(mappedBy = "documentIncomming")
 	private Set<FileEntity> File = new HashSet<>();
 
-	public String getDocument_Incomming_ID() {
-		return Document_Incomming_ID;
+	public String getDocumentIncommingID() {
+		return documentIncommingID;
 	}
 
-	public void setDocument_Incomming_ID(String document_Incomming_ID) {
-		Document_Incomming_ID = document_Incomming_ID;
+	public void setDocumentIncommingID(String documentIncommingID) {
+		this.documentIncommingID = documentIncommingID;
 	}
 
-	public String getDocument_Incomming_Title() {
-		return Document_Incomming_Title;
+	public String getDocumentIncommingTitle() {
+		return documentIncommingTitle;
 	}
 
-	public void setDocument_Incomming_Title(String document_Incomming_Title) {
-		Document_Incomming_Title = document_Incomming_Title;
+	public void setDocumentIncommingTitle(String documentIncommingTitle) {
+		this.documentIncommingTitle = documentIncommingTitle;
 	}
 
-	public String getDocument_Incomming_Content() {
-		return Document_Incomming_Content;
+	public String getDocumentIncommingContent() {
+		return documentIncommingContent;
 	}
 
-	public void setDocument_Incomming_Content(String document_Incomming_Content) {
-		Document_Incomming_Content = document_Incomming_Content;
+	public void setDocumentIncommingContent(String documentIncommingContent) {
+		this.documentIncommingContent = documentIncommingContent;
 	}
 
-	public Date getDocument_Incomming_Time() {
-		return Document_Incomming_Time;
+	public Date getDocumentIncommingTime() {
+		return documentIncommingTime;
 	}
 
-	public void setDocument_Incomming_Time(Date document_Incomming_Time) {
-		Document_Incomming_Time = document_Incomming_Time;
+	public void setDocumentIncommingTime(Date documentIncommingTime) {
+		this.documentIncommingTime = documentIncommingTime;
 	}
 
-	public int getDocument_Incomming_State() {
-		return Document_Incomming_State;
+	public int getDocumentIncommingState() {
+		return documentIncommingState;
 	}
 
-	public void setDocument_Incomming_State(int document_Incomming_State) {
-		Document_Incomming_State = document_Incomming_State;
+	public void setDocumentIncommingState(int documentIncommingState) {
+		this.documentIncommingState = documentIncommingState;
 	}
 
-	public UserAccountEntity getDocument_Incomming_UserSend() {
-		return Document_Incomming_UserSend;
+	public UserAccountEntity getDocumentIncommingUserSend() {
+		return documentIncommingUserSend;
 	}
 
-	public void setDocument_Incomming_UserSend(UserAccountEntity document_Incomming_UserSend) {
-		Document_Incomming_UserSend = document_Incomming_UserSend;
+	public void setDocumentIncommingUserSend(UserAccountEntity documentIncommingUserSend) {
+		this.documentIncommingUserSend = documentIncommingUserSend;
 	}
 
-	public UserAccountEntity getDocument_Incomming_UserReceive() {
-		return Document_Incomming_UserReceive;
+	public UserAccountEntity getDocumentIncommingUserReceive() {
+		return documentIncommingUserReceive;
 	}
 
-	public void setDocument_Incomming_UserReceive(UserAccountEntity document_Incomming_UserReceive) {
-		Document_Incomming_UserReceive = document_Incomming_UserReceive;
+	public void setDocumentIncommingUserReceive(UserAccountEntity documentIncommingUserReceive) {
+		this.documentIncommingUserReceive = documentIncommingUserReceive;
+	}
+
+	public Set<FileEntity> getFile() {
+		return File;
+	}
+
+	public void setFile(Set<FileEntity> file) {
+		File = file;
 	}
 }

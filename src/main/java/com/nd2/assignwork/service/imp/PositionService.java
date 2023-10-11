@@ -25,8 +25,8 @@ public class PositionService implements IPositionService {
 	public PositionDTO save(PositionDTO positionDTO) {
 		PositionEntity positionEntity = new PositionEntity();
 		
-		if(positionDTO.getPosition_ID() != null) {
-			PositionEntity oldPositionEntity = positionRepository.findOne(positionDTO.getPosition_ID());
+		if(positionDTO.getPositionID() != null) {
+			PositionEntity oldPositionEntity = positionRepository.findOne(positionDTO.getPositionID());
 			positionEntity = positionConverter.toEntity(positionDTO, oldPositionEntity);
 		} else {
 			positionEntity = positionConverter.toEntity(positionDTO);

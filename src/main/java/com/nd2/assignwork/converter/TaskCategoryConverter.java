@@ -11,23 +11,23 @@ public class TaskCategoryConverter {
 	// Convert from DTO to Entity
 	public TaskCategoryEntity toEntity(TaskCategoryDTO dto) {
 		TaskCategoryEntity entity = new TaskCategoryEntity();
-		entity.setCategoryName(dto.getCategory_Name());
+		entity.setCategoryName(dto.getCategoryName());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public TaskCategoryDTO toDTO(TaskCategoryEntity entity) {
 		TaskCategoryDTO dto = new TaskCategoryDTO();
-		if(entity.getTask_Category_ID() != null) {
-			dto.setTask_Category_ID(entity.getTask_Category_ID());
+		if(entity.getTaskCategoryID() != null) {
+			dto.setTaskCategoryID(entity.getTaskCategoryID());
 		}
-		dto.setCategory_Name(entity.getCategoryName());
+		dto.setCategoryName(entity.getCategoryName());
 		return dto;
 	}
 	
 	// Save update TaskCategory by convert from DTO to Entity
 	public TaskCategoryEntity toEntity(TaskCategoryDTO dto, TaskCategoryEntity entity) {
-		entity.setCategoryName(dto.getCategory_Name());
+		entity.setCategoryName(dto.getCategoryName());
 		return entity;
 	}
 }

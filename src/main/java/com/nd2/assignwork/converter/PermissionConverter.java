@@ -11,23 +11,23 @@ public class PermissionConverter {
 	// Convert from DTO to Entity
 	public PermissionEntity toEntity(PermissionDTO dto) {
 		PermissionEntity entity = new PermissionEntity();
-		entity.setPermission_Name(dto.getPermission_Name());
+		entity.setPermissionName(dto.getPermissionName());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public PermissionDTO toDTO(PermissionEntity entity) {
 		PermissionDTO dto = new PermissionDTO();
-		if(entity.getPermission_ID() != null) {
-			dto.setPermission_ID(entity.getPermission_ID());
+		if(entity.getPermissionID() != null) {
+			dto.setPermissionID(entity.getPermissionID());
 		}
-		dto.setPermission_Name(entity.getPermission_Name());
+		dto.setPermissionName(entity.getPermissionName());
 		return dto;
 	}
 	
 	// Save update Permission by convert from DTO to Entity
 	public PermissionEntity toEntity(PermissionDTO dto, PermissionEntity entity) {
-		entity.setPermission_Name(dto.getPermission_Name());
+		entity.setPermissionName(dto.getPermissionName());
 		return entity;
 	}
 }

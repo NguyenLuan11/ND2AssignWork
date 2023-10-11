@@ -2,22 +2,22 @@ package com.nd2.assignwork.dto;
 
 public class PositionDTO {
 
-	private Integer Position_ID;
-	private String Position_Name;
+	private Integer positionID;
+	private String positionName;
 
-	public Integer getPosition_ID() {
-		return Position_ID;
+	public String getPositionName() {
+		return positionName;
 	}
 
-	public void setPosition_ID(Integer position_ID) {
-		Position_ID = position_ID;
+	public void setPositionName(String positionName) {
+		this.positionName = positionName;
 	}
 
-	public String getPosition_Name() {
-		return Position_Name;
+	public Integer getPositionID() {
+		return positionID;
 	}
 
-	public void setPosition_Name(String position_Name) {
-		Position_Name = position_Name;
+	public void setPositionID(Integer positionID) {
+		this.positionID = positionID;
 	}
 }

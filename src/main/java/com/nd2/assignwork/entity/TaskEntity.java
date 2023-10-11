@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,43 +28,43 @@ public class TaskEntity {
 
 	@Id
 	@Column(name = "Task_ID", columnDefinition = "varchar(20)")
-	private String Task_ID;
+	private String taskID;
 	
 	@Column(name = "Task_Title", columnDefinition = "nvarchar(255)")
 	@NotBlank
 	private String taskTitle;
 	
 	@Column(name = "Task_Content", columnDefinition = "nvarchar(255)")
-	private String Task_Content;
+	private String taskContent;
 	
 	@Column(name = "Task_DateSend", columnDefinition = "datetime")
 	@CreatedDate
-	@NotBlank
-	private Date Task_DateSend;
+	@NotNull
+	private Date taskDateSend;
 	
 	@Column(name = "Task_DateEnd", columnDefinition = "datetime")
-	private Date Task_DateEnd;
+	private Date taskDateEnd;
 	
 	@Column(name = "Task_State", columnDefinition = "int default 0")
-	private int Task_State;
+	private int taskState;
 	
 	// Foreign key Task_Category_Task
 	@ManyToOne
 	@JoinColumn(name = "Task_Category")
-	@NotBlank
-	private TaskCategoryEntity Task_Category;
+	@NotNull
+	private TaskCategoryEntity taskCategory;
 	
 	// Foreign key Task_Personal_Send
 	@ManyToOne
 	@JoinColumn(name = "Task_Personal_Send")
-	@NotBlank
-	private UserAccountEntity Task_Personal_Send;
+	@NotNull
+	private UserAccountEntity taskPersonalSend;
 
 	// Foreign key Task_Personal_Receive
 	@ManyToOne
 	@JoinColumn(name = "Task_Personal_Receive")
-	@NotBlank
-	private UserAccountEntity Task_Personal_Receive;
+	@NotNull
+	private UserAccountEntity taskPersonalReceive;
 	
 	// Foreign key Discuss_Task
 	@OneToMany(mappedBy = "discussTask")
@@ -80,15 +81,7 @@ public class TaskEntity {
 	public void setFile(Set<FileEntity> file) {
 		File = file;
 	}
-
-	public String getTask_ID() {
-		return Task_ID;
-	}
-
-	public void setTask_ID(String task_ID) {
-		Task_ID = task_ID;
-	}
-
+	
 	public String getTaskTitle() {
 		return taskTitle;
 	}
@@ -96,68 +89,76 @@ public class TaskEntity {
 	public void setTaskTitle(String taskTitle) {
 		this.taskTitle = taskTitle;
 	}
-
-	public String getTask_Content() {
-		return Task_Content;
-	}
-
-	public void setTask_Content(String task_Content) {
-		Task_Content = task_Content;
-	}
-
-	public Date getTask_DateSend() {
-		return Task_DateSend;
-	}
-
-	public void setTask_DateSend(Date task_DateSend) {
-		Task_DateSend = task_DateSend;
-	}
-
-	public Date getTask_DateEnd() {
-		return Task_DateEnd;
-	}
-
-	public void setTask_DateEnd(Date task_DateEnd) {
-		Task_DateEnd = task_DateEnd;
-	}
-
-	public int getTask_State() {
-		return Task_State;
-	}
-
-	public void setTask_State(int task_State) {
-		Task_State = task_State;
-	}
-
-	public TaskCategoryEntity getTask_Category() {
-		return Task_Category;
-	}
-
-	public void setTask_Category(TaskCategoryEntity task_Category) {
-		Task_Category = task_Category;
-	}
-
-	public UserAccountEntity getTask_Personal_Send() {
-		return Task_Personal_Send;
-	}
-
-	public void setTask_Personal_Send(UserAccountEntity task_Personal_Send) {
-		Task_Personal_Send = task_Personal_Send;
-	}
-
-	public UserAccountEntity getTask_Personal_Receive() {
-		return Task_Personal_Receive;
-	}
-
-	public void setTask_Personal_Receive(UserAccountEntity task_Personal_Receive) {
-		Task_Personal_Receive = task_Personal_Receive;
-	}
-
+	
 	public List<DiscussEntity> getDiscuss() {
 		return Discuss;
 	}
 
 	public void setDiscuss(List<DiscussEntity> discuss) {
 		Discuss = discuss;
+	}
+
+	public String getTaskID() {
+		return taskID;
+	}
+
+	public void setTaskID(String taskID) {
+		this.taskID = taskID;
+	}
+
+	public String getTaskContent() {
+		return taskContent;
+	}
+
+	public void setTaskContent(String taskContent) {
+		this.taskContent = taskContent;
+	}
+
+	public Date getTaskDateSend() {
+		return taskDateSend;
+	}
+
+	public void setTaskDateSend(Date taskDateSend) {
+		this.taskDateSend = taskDateSend;
+	}
+
+	public Date getTaskDateEnd() {
+		return taskDateEnd;
+	}
+
+	public void setTaskDateEnd(Date taskDateEnd) {
+		this.taskDateEnd = taskDateEnd;
+	}
+
+	public int getTaskState() {
+		return taskState;
+	}
+
+	public void setTaskState(int taskState) {
+		this.taskState = taskState;
+	}
+
+	public TaskCategoryEntity getTaskCategory() {
+		return taskCategory;
+	}
+
+	public void setTaskCategory(TaskCategoryEntity taskCategory) {
+		this.taskCategory = taskCategory;
+	}
+
+	public UserAccountEntity getTaskPersonalSend() {
+		return taskPersonalSend;
+	}
+
+	public void setTaskPersonalSend(UserAccountEntity taskPersonalSend) {
+		this.taskPersonalSend = taskPersonalSend;
+	}
+
+	public UserAccountEntity getTaskPersonalReceive() {
+		return taskPersonalReceive;
+	}
+
+	public void setTaskPersonalReceive(UserAccountEntity taskPersonalReceive) {
+		this.taskPersonalReceive = taskPersonalReceive;
 	}
 }

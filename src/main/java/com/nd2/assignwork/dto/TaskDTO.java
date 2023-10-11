@@ -4,85 +4,85 @@ import java.util.Date;
 
 public class TaskDTO {
 	
-	private String Task_ID;
-	private String Task_Title;
-	private String Task_Content;
-	private String Task_Category;
-	private Date Task_DateSend;
-	private Date Task_DateEnd;
-	private String Task_Personal_Send;
-	private String Task_Personal_Receive;
-	private int Task_State;
+	private String taskID;
+	private String taskTitle;
+	private String taskContent;
+	private String taskCategory;
+	private Date taskDateSend;
+	private Date taskDateEnd;
+	private String taskPersonalSend;
+	private String taskPersonalReceive;
+	private int taskState;
 
-	public String getTask_Category() {
-		return Task_Category;
+	public String getTaskTitle() {
+		return taskTitle;
 	}
 
-	public void setTask_Category(String task_Category) {
-		Task_Category = task_Category;
+	public void setTaskTitle(String taskTitle) {
+		this.taskTitle = taskTitle;
 	}
 
-	public String getTask_ID() {
-		return Task_ID;
+	public String getTaskID() {
+		return taskID;
 	}
 
-	public void setTask_ID(String task_ID) {
-		Task_ID = task_ID;
+	public void setTaskID(String taskID) {
+		this.taskID = taskID;
 	}
 
-	public String getTask_Title() {
-		return Task_Title;
+	public String getTaskContent() {
+		return taskContent;
 	}
 
-	public void setTask_Title(String task_Title) {
-		Task_Title = task_Title;
+	public void setTaskContent(String taskContent) {
+		this.taskContent = taskContent;
 	}
 
-	public String getTask_Content() {
-		return Task_Content;
+	public String getTaskCategory() {
+		return taskCategory;
 	}
 
-	public void setTask_Content(String task_Content) {
-		Task_Content = task_Content;
+	public void setTaskCategory(String taskCategory) {
+		this.taskCategory = taskCategory;
 	}
 
-	public Date getTask_DateSend() {
-		return Task_DateSend;
+	public Date getTaskDateSend() {
+		return taskDateSend;
 	}
 
-	public void setTask_DateSend(Date task_DateSend) {
-		Task_DateSend = task_DateSend;
+	public void setTaskDateSend(Date taskDateSend) {
+		this.taskDateSend = taskDateSend;
 	}
 
-	public Date getTask_DateEnd() {
-		return Task_DateEnd;
+	public Date getTaskDateEnd() {
+		return taskDateEnd;
 	}
 
-	public void setTask_DateEnd(Date task_DateEnd) {
-		Task_DateEnd = task_DateEnd;
+	public void setTaskDateEnd(Date taskDateEnd) {
+		this.taskDateEnd = taskDateEnd;
 	}
 
-	public String getTask_Personal_Send() {
-		return Task_Personal_Send;
+	public String getTaskPersonalSend() {
+		return taskPersonalSend;
 	}
 
-	public void setTask_Personal_Send(String task_Personal_Send) {
-		Task_Personal_Send = task_Personal_Send;
+	public void setTaskPersonalSend(String taskPersonalSend) {
+		this.taskPersonalSend = taskPersonalSend;
 	}
 
-	public String getTask_Personal_Receive() {
-		return Task_Personal_Receive;
+	public String getTaskPersonalReceive() {
+		return taskPersonalReceive;
 	}
 
-	public void setTask_Personal_Receive(String task_Personal_Receive) {
-		Task_Personal_Receive = task_Personal_Receive;
+	public void setTaskPersonalReceive(String taskPersonalReceive) {
+		this.taskPersonalReceive = taskPersonalReceive;
 	}
 
-	public int getTask_State() {
-		return Task_State;
+	public int getTaskState() {
+		return taskState;
 	}
 
-	public void setTask_State(int task_State) {
-		Task_State = task_State;
+	public void setTaskState(int taskState) {
+		this.taskState = taskState;
 	}
 }

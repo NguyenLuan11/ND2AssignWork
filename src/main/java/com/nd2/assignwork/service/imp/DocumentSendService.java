@@ -30,15 +30,15 @@ public class DocumentSendService implements IDocumentSendService {
 	public DocumentSendDTO save(DocumentSendDTO documentSendDTO) {
 		DocumentSendEntity documentSendEntity = new DocumentSendEntity();
 		
-		DocumentSendEntity oldDocumentSendEntity = documentSendRepository.findOne(documentSendDTO.getDocument_Send_ID());
+		DocumentSendEntity oldDocumentSendEntity = documentSendRepository.findOne(documentSendDTO.getDocumentSendID());
 		if(oldDocumentSendEntity != null) {
 			documentSendEntity = documentSendConverter.toEntity(documentSendDTO, oldDocumentSendEntity);
 		} else {
 			documentSendEntity = documentSendConverter.toEntity(documentSendDTO);
 		}
 		
-		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentSendDTO.getDocument_Send_UserSend());
-		documentSendEntity.setDocument_Send_UserSend(userSend);
+		UserAccountEntity userSend = userAccountRepository.findOneByUserUserName(documentSendDTO.getDocumentSendUserSend());
+		documentSendEntity.setDocumentSendUserSend(userSend);
 		
 		documentSendEntity = documentSendRepository.save(documentSendEntity);
 		return documentSendConverter.toDTO(documentSendEntity);

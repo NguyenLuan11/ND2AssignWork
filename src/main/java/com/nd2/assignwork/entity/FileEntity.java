@@ -19,11 +19,11 @@ public class FileEntity {
 
 	@Id
 	@Column(name = "File_ID", columnDefinition = "varchar(20)")
-	private String File_ID;
+	private String fileID;
 	
 	@Column(name = "File_Name", columnDefinition = "nvarchar(255)")
 	@NotBlank
-	private String File_Name;
+	private String fileName;
 	
 	// Foreign key Task_File
 	@ManyToMany
@@ -37,31 +37,15 @@ public class FileEntity {
 	@JoinTable(name = "Document_Incomming_File",
 		joinColumns = @JoinColumn(name = "File_ID"),
 		inverseJoinColumns = @JoinColumn(name = "Document_Incomming_ID"))
-	private Set<DocumentIncommingEntity> DocumentIncomming = new HashSet<>();
+	private Set<DocumentIncommingEntity> documentIncomming = new HashSet<>();
 	
 	// Foreign key Document_Send_File
 	@ManyToMany
 	@JoinTable(name = "Document_Send_File",
 		joinColumns = @JoinColumn(name = "File_ID"),
 		inverseJoinColumns = @JoinColumn(name = "Document_Send_ID"))
-	private Set<DocumentSendEntity> DocumentSendFile = new HashSet<>();
+	private Set<DocumentSendEntity> documentSendFile = new HashSet<>();
 
-	public Set<DocumentSendEntity> getDocumentSendFile() {
-		return DocumentSendFile;
-	}
-
-	public void setDocumentSendFile(Set<DocumentSendEntity> documentSendFile) {
-		DocumentSendFile = documentSendFile;
-	}
-
-	public Set<DocumentIncommingEntity> getDocumentIncomming() {
-		return DocumentIncomming;
-	}
-
-	public void setDocumentIncomming(Set<DocumentIncommingEntity> documentIncomming) {
-		DocumentIncomming = documentIncomming;
-	}
-	
 	public Set<TaskEntity> getTask() {
 		return Task;
 	}
@@ -70,19 +54,35 @@ public class FileEntity {
 		Task = task;
 	}
 
-	public String getFile_ID() {
-		return File_ID;
+	public String getFileID() {
+		return fileID;
 	}
 
-	public void setFile_ID(String file_ID) {
-		File_ID = file_ID;
+	public void setFileID(String fileID) {
+		this.fileID = fileID;
 	}
 
-	public String getFile_Name() {
-		return File_Name;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFile_Name(String file_Name) {
-		File_Name = file_Name;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public Set<DocumentIncommingEntity> getDocumentIncomming() {
+		return documentIncomming;
+	}
+
+	public void setDocumentIncomming(Set<DocumentIncommingEntity> documentIncomming) {
+		this.documentIncomming = documentIncomming;
+	}
+
+	public Set<DocumentSendEntity> getDocumentSendFile() {
+		return documentSendFile;
+	}
+
+	public void setDocumentSendFile(Set<DocumentSendEntity> documentSendFile) {
+		this.documentSendFile = documentSendFile;
 	}
 }

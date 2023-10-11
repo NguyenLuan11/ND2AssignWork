@@ -11,23 +11,23 @@ public class FileConverter {
 	// Convert from DTO to Entity
 	public FileEntity toEntity(FileDTO dto) {
 		FileEntity entity = new FileEntity();
-		entity.setFile_ID(dto.getFile_ID());
-		entity.setFile_Name(dto.getFile_Name());
+		entity.setFileID(dto.getFileID());
+		entity.setFileName(dto.getFileName());
 		return entity;
 	}
 	
 	// Convert from Entity to DTO
 	public FileDTO toDTO(FileEntity entity) {
 		FileDTO dto = new FileDTO();
-		dto.setFile_ID(entity.getFile_ID());
-		dto.setFile_Name(entity.getFile_Name());
+		dto.setFileID(entity.getFileID());
+		dto.setFileName(entity.getFileName());
 		return dto;
 	}
 	
 	// Save update File by convert from DTO to Entity
 	public FileEntity toEntity(FileDTO dto, FileEntity entity) {
-		entity.setFile_ID(dto.getFile_ID());
-		entity.setFile_Name(dto.getFile_Name());
+		entity.setFileID(dto.getFileID());
+		entity.setFileName(dto.getFileName());
 		return entity;
 	}
 }

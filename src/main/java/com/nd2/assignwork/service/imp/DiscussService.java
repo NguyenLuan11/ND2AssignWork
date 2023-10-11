@@ -36,17 +36,17 @@ public class DiscussService implements IDiscussService {
 	public DiscussDTO save(DiscussDTO discussDTO) {
 		DiscussEntity discussEntity = new DiscussEntity();
 
-		DiscussEntity oldDiscussEntity = discussRepository.findOneByDiscussTime(discussDTO.getDiscuss_Time());
-		if(discussDTO.getDiscuss_Time() != null) {
+		DiscussEntity oldDiscussEntity = discussRepository.findOneByDiscussTime(discussDTO.getDiscussTime());
+		if(discussDTO.getDiscussTime() != null) {
 			discussEntity = discussConverter.toEntity(discussDTO, oldDiscussEntity);
 		} else {
 			discussEntity = discussConverter.toEntity(discussDTO);
 		}
 		
-		TaskEntity taskEntity = taskRepository.findOneByTaskTitle(discussDTO.getDiscuss_Task());
+		TaskEntity taskEntity = taskRepository.findOneByTaskTitle(discussDTO.getDiscussTask());
 		discussEntity.setDiscussTask(taskEntity);
 		
-		UserAccountEntity userAccountEntity = userAccountRepository.findOneByUserUserName(discussDTO.getDiscuss_User());
+		UserAccountEntity userAccountEntity = userAccountRepository.findOneByUserUserName(discussDTO.getDiscussUser());
 		discussEntity.setDiscussUser(userAccountEntity);
 		
 		discussEntity = discussRepository.save(discussEntity);
