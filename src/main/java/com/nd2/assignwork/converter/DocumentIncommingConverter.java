@@ -38,10 +38,16 @@ public class DocumentIncommingConverter {
 	
 	// Save update DocumentIncomming by convert from DTO to Entity
 	public DocumentIncommingEntity toEntity(DocumentIncommingDTO dto, DocumentIncommingEntity entity) {
-		entity.setDocumentIncommingID(dto.getDocumentIncommingID());
-		entity.setDocumentIncommingTitle(dto.getDocumentIncommingTitle());
-		entity.setDocumentIncommingContent(dto.getDocumentIncommingContent());
-		entity.setDocumentIncommingTime(dto.getDocumentIncommingTime());
+		//entity.setDocumentIncommingID(dto.getDocumentIncommingID());
+		if(dto.getDocumentIncommingTitle() != null) {
+			entity.setDocumentIncommingTitle(dto.getDocumentIncommingTitle());
+		}
+		if(dto.getDocumentIncommingContent() != null) {
+			entity.setDocumentIncommingContent(dto.getDocumentIncommingContent());
+		}
+		if(dto.getDocumentIncommingTime() != null) {
+			entity.setDocumentIncommingTime(dto.getDocumentIncommingTime());
+		}
 		entity.setDocumentIncommingState(dto.getDocumentIncommingState());
 		return entity;
 	}

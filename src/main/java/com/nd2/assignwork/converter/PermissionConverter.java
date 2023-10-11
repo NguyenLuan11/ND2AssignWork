@@ -27,7 +27,9 @@ public class PermissionConverter {
 	
 	// Save update Permission by convert from DTO to Entity
 	public PermissionEntity toEntity(PermissionDTO dto, PermissionEntity entity) {
-		entity.setPermissionName(dto.getPermissionName());
+		if(dto.getPermissionName() != null) {
+			entity.setPermissionName(dto.getPermissionName());
+		}
 		return entity;
 	}
 }

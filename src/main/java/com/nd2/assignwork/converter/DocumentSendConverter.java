@@ -37,11 +37,19 @@ public class DocumentSendConverter {
 	
 	// Save update DocumentSend by convert from DTO to Entity
 	public DocumentSendEntity toEntity(DocumentSendDTO dto, DocumentSendEntity entity) {
-		entity.setDocumentSendID(dto.getDocumentSendID());
-		entity.setDocumentSendTitle(dto.getDocumentSendTitle());
-		entity.setDocumentSendContent(dto.getDocumentSendContent());
-		entity.setDocumentSendTime(dto.getDocumentSendTime());
-		entity.setDocumentSendDeadline(dto.getDocumentSendDeadline());
+		//entity.setDocumentSendID(dto.getDocumentSendID());
+		if(dto.getDocumentSendTitle() != null) {
+			entity.setDocumentSendTitle(dto.getDocumentSendTitle());
+		}
+		if(dto.getDocumentSendContent() != null) {
+			entity.setDocumentSendContent(dto.getDocumentSendContent());
+		}
+		if(dto.getDocumentSendTime() != null) {
+			entity.setDocumentSendTime(dto.getDocumentSendTime());
+		}
+		if(dto.getDocumentSendDeadline() != null) {
+			entity.setDocumentSendDeadline(dto.getDocumentSendDeadline());
+		}
 		entity.setDocumentSendState(dto.getDocumentSendState());
 		return entity;
 	}

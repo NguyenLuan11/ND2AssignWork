@@ -14,7 +14,7 @@ public class TaskConverter {
 		entity.setTaskID(dto.getTaskID());
 		entity.setTaskTitle(dto.getTaskTitle());
 		entity.setTaskContent(dto.getTaskContent());
-		entity.setTaskDateSend(dto.getTaskDateEnd());
+		entity.setTaskDateSend(dto.getTaskDateSend());
 		entity.setTaskDateEnd(dto.getTaskDateEnd());
 		entity.setTaskState(dto.getTaskState());
 		return entity;
@@ -26,7 +26,7 @@ public class TaskConverter {
 		dto.setTaskID(entity.getTaskID());
 		dto.setTaskTitle(entity.getTaskTitle());
 		dto.setTaskContent(entity.getTaskContent());
-		dto.setTaskDateSend(entity.getTaskDateEnd());
+		dto.setTaskDateSend(entity.getTaskDateSend());
 		dto.setTaskDateEnd(entity.getTaskDateEnd());
 		dto.setTaskState(entity.getTaskState());
 		if(entity.getTaskCategory() != null) {
@@ -43,11 +43,19 @@ public class TaskConverter {
 	
 	// Save update Task by convert from DTO to Entity
 	public TaskEntity toEntity(TaskDTO dto, TaskEntity entity) {
-		entity.setTaskID(dto.getTaskID());
-		entity.setTaskTitle(dto.getTaskTitle());
-		entity.setTaskContent(dto.getTaskContent());
-		entity.setTaskDateSend(dto.getTaskDateEnd());
-		entity.setTaskDateEnd(dto.getTaskDateEnd());
+		//entity.setTaskID(dto.getTaskID());
+		if(dto.getTaskTitle() != null) {
+			entity.setTaskTitle(dto.getTaskTitle());
+		}
+		if(dto.getTaskContent() != null) {
+			entity.setTaskContent(dto.getTaskContent());
+		}
+		if(dto.getTaskDateSend() != null) {
+			entity.setTaskDateSend(dto.getTaskDateSend());
+		}
+		if(dto.getTaskDateEnd() != null) {
+			entity.setTaskDateEnd(dto.getTaskDateEnd());
+		}
 		entity.setTaskState(dto.getTaskState());
 		return entity;
 	}

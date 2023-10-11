@@ -26,8 +26,10 @@ public class FileConverter {
 	
 	// Save update File by convert from DTO to Entity
 	public FileEntity toEntity(FileDTO dto, FileEntity entity) {
-		entity.setFileID(dto.getFileID());
-		entity.setFileName(dto.getFileName());
+		//entity.setFileID(dto.getFileID());
+		if(dto.getFileName() != null) {
+			entity.setFileName(dto.getFileName());
+		}
 		return entity;
 	}
 }

@@ -27,7 +27,9 @@ public class PositionConverter {
 	
 	// Save update Position by convert from DTO to Entity
 	public PositionEntity toEntity(PositionDTO dto, PositionEntity entity) {
-		entity.setPositionName(dto.getPositionName());
+		if(dto.getPositionName() != null) {
+			entity.setPositionName(dto.getPositionName());
+		}
 		return entity;
 	}
 }

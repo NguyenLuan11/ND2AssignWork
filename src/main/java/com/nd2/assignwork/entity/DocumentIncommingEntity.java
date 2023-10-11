@@ -6,7 +6,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -14,11 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-@EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name = "Document_Incomming")
 public class DocumentIncommingEntity {
@@ -36,8 +33,7 @@ public class DocumentIncommingEntity {
 	private String documentIncommingContent;
 	
 	@Column(name = "Document_Incomming_Time", columnDefinition = "datetime")
-	@CreatedDate
-	@NotNull
+	@CreationTimestamp
 	private Date documentIncommingTime;
 	
 	@Column(name = "Document_Incomming_State", columnDefinition = "int default 0")

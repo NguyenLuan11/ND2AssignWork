@@ -27,7 +27,9 @@ public class TaskCategoryConverter {
 	
 	// Save update TaskCategory by convert from DTO to Entity
 	public TaskCategoryEntity toEntity(TaskCategoryDTO dto, TaskCategoryEntity entity) {
-		entity.setCategoryName(dto.getCategoryName());
+		if(dto.getCategoryName() != null) {
+			entity.setCategoryName(dto.getCategoryName());
+		}
 		return entity;
 	}
 }

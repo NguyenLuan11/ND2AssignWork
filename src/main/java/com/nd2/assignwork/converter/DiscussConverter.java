@@ -32,8 +32,12 @@ public class DiscussConverter {
 	
 	// Save update Discuss by convert from DTO to Entity
 	public DiscussEntity toEntity(DiscussDTO dto, DiscussEntity entity) {
-		entity.setDiscussTime(dto.getDiscussTime());
-		entity.setDiscussContent(dto.getDiscussContent());
+		if(dto.getDiscussTime() != null) {
+			entity.setDiscussTime(dto.getDiscussTime());
+		}
+		if(dto.getDiscussContent() != null) {
+			entity.setDiscussContent(dto.getDiscussContent());
+		}
 		return entity;
 	}
 }

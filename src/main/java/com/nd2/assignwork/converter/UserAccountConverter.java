@@ -45,13 +45,25 @@ public class UserAccountConverter {
 	
 	// Save update UserAccount by convert from DTO to Entity
 	public UserAccountEntity toEntity(UserAccountDTO dto, UserAccountEntity entity) {
-		entity.setUserID(dto.getUserID());
-		entity.setUserUserName(dto.getUserUserName());
-		entity.setUserFullName(dto.getUserFullName());
-		entity.setUserEmail(dto.getUserEmail());
-		entity.setUserPassword(EncryptMD5.getPassMD5(dto.getUserPassword()));
-		entity.setUserPhone(dto.getUserPhone());
-		entity.setUserImage(dto.getUserImage());
+		//entity.setUserID(dto.getUserID());
+		if(dto.getUserUserName() != null) {
+			entity.setUserUserName(dto.getUserUserName());
+		}
+		if(dto.getUserFullName() != null) {
+			entity.setUserFullName(dto.getUserFullName());
+		}
+		if(dto.getUserEmail() != null) {
+			entity.setUserEmail(dto.getUserEmail());
+		}
+		if(dto.getUserPassword() != null) {
+			entity.setUserPassword(EncryptMD5.getPassMD5(dto.getUserPassword()));
+		}
+		if(dto.getUserPhone() != null) {
+			entity.setUserPhone(dto.getUserPhone());
+		}
+		if(dto.getUserImage() != null) {
+			entity.setUserImage(dto.getUserImage());
+		}
 		entity.setUserIsActive(dto.getUserIsActive());
 		return entity;
 	}

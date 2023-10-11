@@ -29,8 +29,10 @@ public class DepartmentConverter {
 	
 	// Save update Department by convert from DTO to Entity
 	public DepartmentEntity toEntity(DepartmentDTO dto, DepartmentEntity entity) {
-		entity.setDepartmentID(dto.getDepartmentID());
-		entity.setDepartmentName(dto.getDepartmentName());
+		//entity.setDepartmentID(dto.getDepartmentID());
+		if(dto.getDepartmentName() != null) {
+			entity.setDepartmentName(dto.getDepartmentName());
+		}
 		return entity;
 	}
 }
