@@ -6,5 +6,5 @@ import com.nd2.assignwork.entity.PermissionEntity;
 
 public interface PermissionRepository extends JpaRepository<PermissionEntity, Integer> {
 
-	
+	PermissionEntity findOneByPermissionName(String permissionName);
 }

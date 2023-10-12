@@ -12,4 +12,14 @@ public interface IUserAccountService {
 	void delete(String[] ids);
 	// Get UserAccount no paging
 	List<UserAccountDTO> findAll();
+	// Get single user
+	UserAccountDTO findSingleUser(String userId);
+	// Add permission for user
+	void addPermissionForUser(String userId, int permissionId);
+	// Delete permission for user
+	void deletePermissionForUser(String userId, int permissionId);
+	// Add Document Receive for user
+	void addDocumentReceiveForUser(String userId, String documentSendId);
+	// Delete Document Receive for user
+	void deleteDocumentReceiveForUser(String userId, String documentSendId);
 }

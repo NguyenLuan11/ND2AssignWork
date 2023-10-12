@@ -1,5 +1,7 @@
 package com.nd2.assignwork.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserAccountDTO {
 	
@@ -13,6 +15,9 @@ public class UserAccountDTO {
 	private String userDepartment;
 	private byte[] userImage;
 	private Boolean userIsActive;
+	
+	private List<String> permissionName = new ArrayList<>();
+	private List<String> documentReceive = new ArrayList<>();
 	
 	public String getUserUserName() {
 		return userUserName;
@@ -92,5 +97,21 @@ public class UserAccountDTO {
 
 	public void setUserIsActive(Boolean userIsActive) {
 		this.userIsActive = userIsActive;
+	}
+
+	public List<String> getPermissionName() {
+		return permissionName;
+	}
+
+	public void setPermissionName(List<String> permissionName) {
+		this.permissionName = permissionName;
+	}
+
+	public List<String> getDocumentReceive() {
+		return documentReceive;
+	}
+
+	public void setDocumentReceive(List<String> documentReceive) {
+		this.documentReceive = documentReceive;
 	}
 }

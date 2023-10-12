@@ -27,6 +27,12 @@ public class FileAPI {
 		result.setListResult(fileService.findAll());
 		return result;
 	}
+
+	@GetMapping(value = "/api/file/{fileId}")
+	public FileDTO getSingleUser(@PathVariable("fileId") String fileId) {
+		FileDTO file = fileService.findSingleFile(fileId);
+	    return file;
+	}
 	
 	@PostMapping(value = "/api/file")
 	public FileDTO createFile(@RequestBody FileDTO model) {
@@ -43,4 +49,13 @@ public class FileAPI {
 	public void deleteFile(@RequestBody String[] fileIds) {
 		fileService.delete(fileIds);
 	}
+	
+	// Task - File
+
+	
+	// Document_Incomming_File
+	
+	
+	// Document_Send_File
+	
 }

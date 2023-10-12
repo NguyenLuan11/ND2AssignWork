@@ -28,6 +28,12 @@ public class UserAccountAPI {
 		return result;
 	}
 	
+	@GetMapping(value = "/api/useraccount/{userId}")
+	public UserAccountDTO getSingleUser(@PathVariable("userId") String userId) {
+		UserAccountDTO user = userAccountService.findSingleUser(userId);
+	    return user;
+	}
+	
 	@PostMapping(value = "/api/useraccount")
 	public UserAccountDTO createUserAccount(@RequestBody UserAccountDTO model) {
 		return userAccountService.save(model);
@@ -42,5 +48,27 @@ public class UserAccountAPI {
 	@DeleteMapping(value = "/api/useraccount")
 	public void deleteUserAccount(@RequestBody String[] userIds) {
 		userAccountService.delete(userIds);
+	}
+	
+	// UserAccount - Permission
+	@PostMapping(value = "/api/useraccount/{userId}/addPermission/{permissionId}")
+	public void addUserPermission(@PathVariable("userId") String userId, @PathVariable("permissionId") int permissionId) {
+	    userAccountService.addPermissionForUser(userId, permissionId);
+	}
+	
+	@DeleteMapping(value = "/api/useraccount/{userId}/deletePermission/{permissionId}")
+	public void deletePermissionForUser(@PathVariable("userId") String userId, @PathVariable("permissionId") int permissionId) {
+	    userAccountService.deletePermissionForUser(userId, permissionId);
+	}
+	
+	// User - Receive - Document
+	@PostMapping(value = "/api/useraccount/{userId}/addDocumentSend/{documentSendId}")
+	public void addUserReceiveDocument(@PathVariable("userId") String userId, @PathVariable("documentSendId") String documentSendId) {
+	    userAccountService.addDocumentReceiveForUser(userId, documentSendId);
+	}
+	
+	@DeleteMapping(value = "/api/useraccount/{userId}/deleteDocumentSend/{documentSendId}")
+	public void deleteUserReceiveDocument(@PathVariable("userId") String userId, @PathVariable("documentSendId") String documentSendId) {
+	    userAccountService.deleteDocumentReceiveForUser(userId, documentSendId);
 	}
 }
