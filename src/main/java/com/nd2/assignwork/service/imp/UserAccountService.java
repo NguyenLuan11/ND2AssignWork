@@ -129,7 +129,7 @@ public class UserAccountService implements IUserAccountService {
 		PermissionEntity permission = permissionRepository.findOne(permissionId);
 
 		if (user != null && permission != null) {
-			// Kiểm tra xem quyền đã tồn tại cho người dùng hay chưa.
+			// Check permission exist yet?
 			boolean oldPermissionExists = user.getPermission().contains(permission);
 			
 			if (!oldPermissionExists) {
@@ -145,13 +145,12 @@ public class UserAccountService implements IUserAccountService {
 	    PermissionEntity permission = permissionRepository.findOne(permissionId);
 
 	    if (user != null && permission != null) {
-	        // Kiểm tra xem quyền cũ đã tồn tại cho người dùng hay chưa.
+	    	// Check permission exist yet?
 	        boolean oldPermissionExists = user.getPermission().contains(permission);
 
 	        if (oldPermissionExists) {
-	            // Nếu quyền cũ đã tồn tại, thì loại bỏ nó.
+	        	// Permission existed, so remove it.
 	            user.getPermission().remove(permission);
-	            // Lưu cập nhật vào cơ sở dữ liệu.
 	            userAccountRepository.save(user);
 	        }
 	    }
@@ -175,13 +174,13 @@ public class UserAccountService implements IUserAccountService {
 	    DocumentSendEntity documentSend = documentSendRepository.findOne(documentSendId);
 
 	    if (user != null && documentSend != null) {
-	        // Kiểm tra xem document đã tồn tại cho người dùng hay chưa.
+	        // Check document exist yet?
 	        boolean documentSendExists = user.getDocumentSend().contains(documentSend);
 
 	        if (documentSendExists) {
-	            // Nếu document đã tồn tại, thì loại bỏ nó.
+	            // Document existed, so remove it.
 	            user.getDocumentSend().remove(documentSend);
-	            // Lưu cập nhật vào cơ sở dữ liệu.
+	            // Save update into database.
 	            userAccountRepository.save(user);
 	        }
 	    }

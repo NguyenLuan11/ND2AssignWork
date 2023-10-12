@@ -24,7 +24,7 @@ public class PermissionService implements IPermissionService {
 	@Override
 	public PermissionDTO save(PermissionDTO permissionDTO) {
 		PermissionEntity permissionEntity = new PermissionEntity();
-		
+
 		if(permissionDTO.getPermissionID() != null) {
 			PermissionEntity oldPermissionEntity = permissionRepository.findOne(permissionDTO.getPermissionID());
 			permissionEntity = permissionConverter.toEntity(permissionDTO, oldPermissionEntity);

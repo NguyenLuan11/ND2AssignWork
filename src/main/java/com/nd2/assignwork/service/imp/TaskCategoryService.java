@@ -24,7 +24,7 @@ public class TaskCategoryService implements ITaskCategoryService {
 	@Override
 	public TaskCategoryDTO save(TaskCategoryDTO taskCategoryDTO) {
 		TaskCategoryEntity taskCategoryEntity = new TaskCategoryEntity();
-		
+
 		if(taskCategoryDTO.getTaskCategoryID() != null) {
 			TaskCategoryEntity oldTaskCategoryEntity = taskCategoryRepository.findOne(taskCategoryDTO.getTaskCategoryID());
 			taskCategoryEntity = taskCategoryConverter.toEntity(taskCategoryDTO, oldTaskCategoryEntity);

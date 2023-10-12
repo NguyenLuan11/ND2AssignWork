@@ -37,7 +37,7 @@ public class DiscussService implements IDiscussService {
 		DiscussEntity discussEntity = new DiscussEntity();
 
 		DiscussEntity oldDiscussEntity = discussRepository.findOneByDiscussTime(discussDTO.getDiscussTime());
-		if(discussDTO.getDiscussTime() != null) {
+		if(oldDiscussEntity != null) {
 			discussEntity = discussConverter.toEntity(discussDTO, oldDiscussEntity);
 		} else {
 			discussEntity = discussConverter.toEntity(discussDTO);

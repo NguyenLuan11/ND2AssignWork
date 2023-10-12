@@ -51,11 +51,35 @@ public class FileAPI {
 	}
 	
 	// Task - File
-
+	@PostMapping(value = "/api/file/{fileId}/addTask/{taskId}")
+	public void addTaskFile(@PathVariable("fileId") String fileId, @PathVariable("taskId") String taskId) {
+		fileService.addTaskForFile(fileId, taskId);
+	}
+	
+	@DeleteMapping(value = "/api/file/{fileId}/deleteTask/{taskId}")
+	public void deleteTaskFile(@PathVariable("fileId") String fileId, @PathVariable("taskId") String taskId) {
+		fileService.deleteTaskForFile(fileId, taskId);
+	}
 	
 	// Document_Incomming_File
+	@PostMapping(value = "/api/file/{fileId}/addDocumentIncomming/{documentIncommingId}")
+	public void addDocumentIncommingFile(@PathVariable("fileId") String fileId, @PathVariable("documentIncommingId") String documentIncommingId) {
+		fileService.addDocumentIncommingForFile(fileId, documentIncommingId);
+	}
 	
+	@DeleteMapping(value = "/api/file/{fileId}/deleteDocumentIncomming/{documentIncommingId}")
+	public void deleteDocumentIncommingFile(@PathVariable("fileId") String fileId, @PathVariable("documentIncommingId") String documentIncommingId) {
+		fileService.deleteDocumentIncommingForFile(fileId, documentIncommingId);
+	}
 	
 	// Document_Send_File
+	@PostMapping(value = "/api/file/{fileId}/addDocumentSend/{documentSendId}")
+	public void addDocumentSendFile(@PathVariable("fileId") String fileId, @PathVariable("documentSendId") String documentSendId) {
+		fileService.addDocumentSendForFile(fileId, documentSendId);
+	}
 	
+	@DeleteMapping(value = "/api/file/{fileId}/deleteDocumentSend/{documentSendId}")
+	public void deleteDocumentSendFile(@PathVariable("fileId") String fileId, @PathVariable("documentSendId") String documentSendId) {
+		fileService.deleteDocumentSendForFile(fileId, documentSendId);
+	}
 }

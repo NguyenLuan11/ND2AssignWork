@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.nd2.assignwork.converter.DocumentIncommingConverter;
 import com.nd2.assignwork.converter.DocumentSendConverter;
 import com.nd2.assignwork.converter.FileConverter;
-import com.nd2.assignwork.converter.TaskCategoryConverter;
 import com.nd2.assignwork.converter.TaskConverter;
 import com.nd2.assignwork.dto.DocumentIncommingDTO;
 import com.nd2.assignwork.dto.DocumentSendDTO;
@@ -131,36 +130,89 @@ public class FileService implements IFileService {
 		TaskEntity task = taskRepository.findOne(taskId);
 		
 		if(file != null && task != null) {
-			file.getTask().add(task);
-			fileRepository.save(file);
+			boolean taskExists = file.getTask().contains(task);
+			
+			if(!taskExists) {
+				file.getTask().add(task);
+				fileRepository.save(file);
+			}
 		}
-		
 	}
 
 	@Override
 	public void deleteTaskForFile(String fileId, String taskId) {
-
+		FileEntity file = fileRepository.findOne(fileId);
+		TaskEntity task = taskRepository.findOne(taskId);
+		
+		if(file != null && task != null) {
+			boolean taskExists = file.getTask().contains(task);
+			
+			if(taskExists) {
+				file.getTask().remove(task);
+				fileRepository.save(file);
+			}
+		}
 	}
 
 	// Document_Incomming_File
 	@Override
 	public void addDocumentIncommingForFile(String fileId, String documentIncommingId) {
-
+		FileEntity file = fileRepository.findOne(fileId);
+		DocumentIncommingEntity documentIncomming = documentIncommingRepository.findOne(documentIncommingId);
+		
+		if(file != null && documentIncomming != null) {
+			boolean documentIncommingExists = file.getDocumentIncomming().contains(documentIncomming);
+			
+			if(!documentIncommingExists) {
+				file.getDocumentIncomming().add(documentIncomming);
+				fileRepository.save(file);
+			}
+		}
 	}
 
 	@Override
 	public void deleteDocumentIncommingForFile(String fileId, String documentIncommingId) {
-
+		FileEntity file = fileRepository.findOne(fileId);
+		DocumentIncommingEntity documentIncomming = documentIncommingRepository.findOne(documentIncommingId);
+		
+		if(file != null && documentIncomming != null) {
+			boolean documentIncommingExists = file.getDocumentIncomming().contains(documentIncomming);
+			
+			if(documentIncommingExists) {
+				file.getDocumentIncomming().remove(documentIncomming);
+				fileRepository.save(file);
+			}
+		}
 	}
 
 	// Document_Send_File
 	@Override
 	public void addDocumentSendForFile(String fileId, String documentSendId) {
-
+		FileEntity file = fileRepository.findOne(fileId);
+		DocumentSendEntity documentSend = documentSendRepository.findOne(documentSendId);
+		
+		if(file != null && documentSend != null) {
+			boolean documentSendExists = file.getDocumentSendFile().contains(documentSend);
+			
+			if(!documentSendExists) {
+				file.getDocumentSendFile().add(documentSend);
+				fileRepository.save(file);
+			}
+		}
 	}
 
 	@Override
 	public void deleteDocumentSendForFile(String fileId, String documentSendId) {
-
+		FileEntity file = fileRepository.findOne(fileId);
+		DocumentSendEntity documentSend = documentSendRepository.findOne(documentSendId);
+		
+		if(file != null && documentSend != null) {
+			boolean documentSendExists = file.getDocumentSendFile().contains(documentSend);
+			
+			if(documentSendExists) {
+				file.getDocumentSendFile().remove(documentSend);
+				fileRepository.save(file);
+			}
+		}
 	}
 }

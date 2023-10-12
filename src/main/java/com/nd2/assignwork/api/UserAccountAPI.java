@@ -57,7 +57,7 @@ public class UserAccountAPI {
 	}
 	
 	@DeleteMapping(value = "/api/useraccount/{userId}/deletePermission/{permissionId}")
-	public void deletePermissionForUser(@PathVariable("userId") String userId, @PathVariable("permissionId") int permissionId) {
+	public void deleteUserPermission(@PathVariable("userId") String userId, @PathVariable("permissionId") int permissionId) {
 	    userAccountService.deletePermissionForUser(userId, permissionId);
 	}
 	
