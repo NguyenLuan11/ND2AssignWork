@@ -47,7 +47,7 @@ public class DiscussService implements IDiscussService {
 		discussEntity.setDiscussTask(taskEntity);
 		
 		UserAccountEntity userAccountEntity = userAccountRepository.findOneByUserUserName(discussDTO.getDiscussUser());
-		discussEntity.setDiscussUser(userAccountEntity);
+		discussEntity.setDiscussUser(userAccountEntity);		
 		
 		discussEntity = discussRepository.save(discussEntity);
 		return discussConverter.toDTO(discussEntity);

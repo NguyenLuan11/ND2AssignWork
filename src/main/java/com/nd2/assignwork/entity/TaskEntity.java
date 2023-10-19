@@ -26,30 +26,30 @@ public class TaskEntity {
 	@Id
 	@Column(name = "Task_ID", columnDefinition = "varchar(20)")
 	private String taskID;
-	
+
 	@Column(name = "Task_Title", columnDefinition = "nvarchar(255)")
 	@NotBlank
 	private String taskTitle;
-	
+
 	@Column(name = "Task_Content", columnDefinition = "nvarchar(255)")
 	private String taskContent;
-	
+
 	@Column(name = "Task_DateSend", columnDefinition = "datetime")
 	@CreationTimestamp
 	private Date taskDateSend;
-	
+
 	@Column(name = "Task_DateEnd", columnDefinition = "datetime")
 	private Date taskDateEnd;
-	
+
 	@Column(name = "Task_State", columnDefinition = "int default 0")
 	private int taskState;
-	
+
 	// Foreign key Task_Category_Task
 	@ManyToOne
 	@JoinColumn(name = "Task_Category")
 	@NotNull
 	private TaskCategoryEntity taskCategory;
-	
+
 	// Foreign key Task_Personal_Send
 	@ManyToOne
 	@JoinColumn(name = "Task_Personal_Send")
@@ -61,15 +61,15 @@ public class TaskEntity {
 	@JoinColumn(name = "Task_Personal_Receive")
 	@NotNull
 	private UserAccountEntity taskPersonalReceive;
-	
+
 	// Foreign key Discuss_Task
 	@OneToMany(mappedBy = "discussTask")
 	private List<DiscussEntity> Discuss = new ArrayList<>();
-	
+
 	// Foreign key Task_File
 	@ManyToMany(mappedBy = "Task")
 	private Set<FileEntity> File = new HashSet<>();
-	
+
 	public Set<FileEntity> getFile() {
 		return File;
 	}
@@ -77,7 +77,7 @@ public class TaskEntity {
 	public void setFile(Set<FileEntity> file) {
 		File = file;
 	}
-	
+
 	public String getTaskTitle() {
 		return taskTitle;
 	}
@@ -85,7 +85,7 @@ public class TaskEntity {
 	public void setTaskTitle(String taskTitle) {
 		this.taskTitle = taskTitle;
 	}
-	
+
 	public List<DiscussEntity> getDiscuss() {
 		return Discuss;
 	}

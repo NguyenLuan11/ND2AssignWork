@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -26,13 +28,17 @@ public class DiscussEntity implements Serializable {
 	// Foreign key Discuss_Task
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "Discuss_Task")
+	@JoinColumns(
+			@JoinColumn(name = "Discuss_Task", referencedColumnName = "Task_ID"))
+	@NotNull
 	private TaskEntity discussTask;
 
 	// Foreign key Discuss_User
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "Discuss_User")
+	@JoinColumns(
+			@JoinColumn(name = "Discuss_User", referencedColumnName = "User_ID"))
+	@NotNull
 	private UserAccountEntity discussUser;
 
 	@Id
